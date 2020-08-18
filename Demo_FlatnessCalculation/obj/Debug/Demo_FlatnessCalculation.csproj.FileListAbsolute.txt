@@ -14,3 +14,19 @@ C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Demo_FlatnessCal
 C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.csproj.GenerateResource.Cache
 C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.exe
 C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.pdb
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\bin\Debug\Demo_FlatnessCalculation.exe.config
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\bin\Debug\Demo_FlatnessCalculation.exe
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\bin\Debug\Demo_FlatnessCalculation.pdb
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\bin\Debug\Coast.Math.dll
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\bin\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.csprojResolveAssemblyReference.cache
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\MainWindow.g.cs
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\App.g.cs
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation_MarkupCompile.cache
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation_MarkupCompile.lref
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\MainWindow.baml
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.g.resources
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.Properties.Resources.resources
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.csproj.GenerateResource.Cache
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.exe
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_FlatnessCalculation\obj\Debug\Demo_FlatnessCalculation.pdb

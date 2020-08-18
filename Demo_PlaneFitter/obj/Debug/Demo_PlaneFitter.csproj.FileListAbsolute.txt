@@ -14,3 +14,19 @@ C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Demo_PlaneFitter
 C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.csproj.GenerateResource.Cache
 C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.exe
 C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.pdb
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\bin\Debug\Demo_PlaneFitter.exe.config
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\bin\Debug\Demo_PlaneFitter.exe
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\bin\Debug\Demo_PlaneFitter.pdb
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\bin\Debug\Coast.Math.dll
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\bin\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.csprojResolveAssemblyReference.cache
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\MainWindow.g.cs
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\App.g.cs
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter_MarkupCompile.cache
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter_MarkupCompile.lref
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\MainWindow.baml
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.g.resources
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.Properties.Resources.resources
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.csproj.GenerateResource.Cache
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.exe
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.pdb
