@@ -8,11 +8,11 @@ Math_Solution, To solve LinearEquations, LeastSquarePlaneFitting, FlatnessCalcul
 
 LinearEquations Description
 
-LinearEquations:  Ax=B
+Equations:  Ax=B
 
-Matrix:           [A|B]
+Matrix:     [A|B]
 
-Result:           []
+Result:     []
 
 
 LinearEquations 测试
