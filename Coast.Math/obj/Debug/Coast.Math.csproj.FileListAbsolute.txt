@@ -1,0 +1,8 @@
+c:\users\ma\documents\visual studio 2015\Projects\Demo_FlatnessMeasurement\Coast.Math\bin\Debug\Coast.Math.dll
+c:\users\ma\documents\visual studio 2015\Projects\Demo_FlatnessMeasurement\Coast.Math\bin\Debug\Coast.Math.pdb
+c:\users\ma\documents\visual studio 2015\Projects\Demo_FlatnessMeasurement\Coast.Math\obj\Debug\Coast.Math.dll
+c:\users\ma\documents\visual studio 2015\Projects\Demo_FlatnessMeasurement\Coast.Math\obj\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Coast.Math\bin\Debug\Coast.Math.dll
+C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Coast.Math\bin\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Coast.Math\obj\Debug\Coast.Math.dll
+C:\Users\MA\Documents\Visual Studio 2015\Projects\Math_Solution\Coast.Math\obj\Debug\Coast.Math.pdb
