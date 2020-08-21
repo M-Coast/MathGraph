@@ -30,17 +30,22 @@ namespace Coast.Math
             set { _points = new List<Vector3>(value); }
         }
 
+        //Plane Coefficients
         //z=ax+by+c
         public double a { get { return _a; } }
         public double b { get { return _b; } }
         public double c { get { return _c; } }
 
-        //Ax+By+Cz+D=0, Normal=(A,B,C) (positive z-upward)
+        //Plane Coefficients
+        //Ax+By+Cz+D=0, Normal=(A,B,C) PositiveDirection: z-upward
         public double A { get { return _A; } }
         public double B { get { return _B; } }
         public double C { get { return _C; } }
         public double D { get { return _D; } }
 
+        //Plane 
+        public Plane Plane { get { return new Plane(A, B, C, D); } }
+        
         public bool Errored { get; private set; } = false;
         public PlaneFitterErrorCode ErrorCode { get; private set; } = PlaneFitterErrorCode.NoError;
 
@@ -52,6 +57,7 @@ namespace Coast.Math
         private double _C = 0;
         private double _D = 0;
         private List<Vector3> _points = null;
+
 
         public PlaneFitter()
         {
@@ -67,6 +73,19 @@ namespace Coast.Math
         {
             PointSource = pointsSource;
         }
+
+
+        //public PlaneFitter(List<Vector3> points, bool solve)
+        //{
+        //    Points = points;
+        //    if (solve) Solve();
+        //}
+
+        //public PlaneFitter(Vector3[] pointsSource, bool solve)
+        //{
+        //    PointSource = pointsSource;
+        //    if (solve) Solve();
+        //}
 
 
         public bool Solve()
@@ -145,7 +164,6 @@ namespace Coast.Math
             _B = 0;
             _C = 0;
             _D = 0;
-            _points = null;
         }
 
         private void SetError(PlaneFitterErrorCode errorCode)

@@ -30,3 +30,4 @@ C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_Plane
 C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.csproj.GenerateResource.Cache
 C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.exe
 C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.pdb
+C:\Users\MA\Documents\GitHub\Math_Solution\Demo_PlaneFitter\obj\Debug\GeneratedInternalTypeHelper.g.cs

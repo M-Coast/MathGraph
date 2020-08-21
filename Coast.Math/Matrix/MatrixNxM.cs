@@ -8,8 +8,6 @@ using System.Diagnostics;
 
 namespace Coast.Math
 {
-
-
     //MatrixNXM Type
     //  Definations:
     //      N Columns
@@ -24,7 +22,7 @@ namespace Coast.Math
 
 
         private double[,] _data;
-        
+
         public double[,] Data
         {
             get { return _data; }
@@ -35,8 +33,8 @@ namespace Coast.Math
             set { SetDataSource(value); }
         }
 
-        
-        public int Rows { get {return _n; } }
+
+        public int Rows { get { return _n; } }
         public int Columns { get { return _m; } }
 
         private int _n = 0;//rows
@@ -49,7 +47,7 @@ namespace Coast.Math
 
         public MatrixNxM()
         {
-            
+
         }
 
         public MatrixNxM(int rows, int columns)
@@ -92,7 +90,7 @@ namespace Coast.Math
                 _data[rowIndex, columnIndex] = value;
             }
         }
-        
+
 
         private void CheckData()
         {
@@ -154,7 +152,7 @@ namespace Coast.Math
             CheckRowIndex(rowIndex2);
 
             if (rowIndex1 == rowIndex2) return;
-            
+
             for (int i = 0; i < _m; i++)
             {
                 double t = _data[rowIndex1, i];
@@ -162,7 +160,7 @@ namespace Coast.Math
                 _data[rowIndex2, i] = t;
             }
         }
-        
+
         public void Clear()
         {
             _n = 0;
@@ -227,7 +225,7 @@ namespace Coast.Math
             for (int j = 0; j < _n; j++)
             {
                 for (int i = 0; i < _m; i++)
-                { 
+                {
                     s += _data[j, i].ToString("F2") + "\t";
                 }
                 s += "\r\n";
@@ -292,183 +290,4 @@ namespace Coast.Math
 
 
     }
-
-    
-    [Serializable]
-    public struct Matrix3X3
-    {
-
-    }
-
-    [Serializable]
-    public struct Matrix3X4
-    {
-
-    }
-
-
-
-
-    //public class MatrixNXM_BK
-    //{
-    //    public const int MaxRows = 1024;
-    //    public const int MaxColumns = 1024;
-
-
-    //    private List<double[]> _data;
-
-    //    public List<double[]> Data
-    //    {
-    //        get { return _data; }
-    //    }
-
-    //    public double[,] DataSource
-    //    {
-    //        set { SetData_Array(value); }
-    //    }
-
-
-    //    //public double[,] DataArray
-    //    //{
-    //    //    get
-    //    //    {
-    //    //        if (_data == null) return null;
-    //    //        //_data.Add()
-    //    //    }
-    //    //}
-
-
-    //    public int Rows { get; }
-    //    public int Columns { get; }
-
-    //    private int _n = 0;//rows
-    //    private int _m = 0;//columns
-
-    //    public MatrixErrorCode ErrorCode { get; private set; }
-
-    //    public bool Errored { get; private set; }
-
-
-    //    public MatrixNXM_BK()
-    //    {
-    //        //_data.
-    //    }
-
-    //    public MatrixNXM_BK(int rows, int columns)
-    //    {
-    //        if (rows < 1 || rows > MaxRows)
-    //        {
-    //            SetError(MatrixErrorCode.RowIndexError, rows);
-    //        }
-    //        if (columns < 1 || columns > MaxColumns)
-    //        {
-    //            SetError(MatrixErrorCode.RowIndexError, columns);
-    //        }
-
-    //        _n = rows;
-    //        _m = columns;
-
-    //        _data = new List<double[]>(_n);
-    //        for (int i = 0; i < _n; i++) _data.Add(new double[_m]);
-    //    }
-
-    //    public MatrixNXM_BK(double[,] data)
-    //    {
-    //        SetData_Array(data);
-    //    }
-
-    //    public void Clear()
-    //    {
-    //        _n = 0;
-    //        _m = 0;
-    //        _data.Clear();
-    //    }
-
-    //    private void SetData_Array(double[,] data)
-    //    {
-    //        _n = 0;
-    //        _m = 0;
-
-    //        if (data == null) return;
-
-    //        if (_data == null)
-    //        {
-    //            _data = new List<double[]>();
-    //        }
-    //        else
-    //        {
-    //            _data.Clear();
-    //        }
-
-    //        int rows = data.GetLength(1);
-    //        int columns = data.GetLength(0);
-
-    //        if (rows < 1 || rows > MaxRows)
-    //        {
-    //            SetError(MatrixErrorCode.RowIndexError, rows);
-    //        }
-    //        if (columns < 1 || columns > MaxColumns)
-    //        {
-    //            SetError(MatrixErrorCode.RowIndexError, columns);
-    //        }
-
-    //        _n = rows;
-    //        _m = columns;
-    //        int offset = 0;
-
-    //        for (int i = 0; i < _n; i++)
-    //        {
-    //            double[] v = new double[_m];
-    //            Buffer.BlockCopy(data, offset, v, 0, _m);
-    //            _data.Add(v);
-    //            offset = offset + _m;
-    //        }
-    //    }
-
-    //    public double this[int rowIndex, int columnIndex]
-    //    {
-    //        get
-    //        {
-    //            if (rowIndex < 0 || rowIndex > _n - 1)
-    //            {
-    //                SetError(MatrixErrorCode.RowIndexError, rowIndex);
-    //            }
-    //            if (columnIndex < 0 || columnIndex > _n - 1)
-    //            {
-    //                SetError(MatrixErrorCode.RowIndexError, columnIndex);
-    //            }
-    //            return _data[rowIndex][columnIndex];
-    //        }
-    //    }
-
-    //    public void SwapRows(int rowIndex1, int rowIndex2)
-    //    {
-    //        if (rowIndex1 < 0 || rowIndex1 > _n - 1)
-    //        {
-    //            SetError(MatrixErrorCode.RowIndexError, rowIndex1);
-    //        }
-
-    //        if (rowIndex2 < 0 || rowIndex2 > _n - 1)
-    //        {
-    //            SetError(MatrixErrorCode.RowIndexError, rowIndex2);
-    //        }
-
-    //        double[] t = _data[rowIndex1];
-    //        _data[rowIndex1] = _data[rowIndex2];
-    //        _data[rowIndex2] = t;
-    //    }
-
-    //    private string SetError(MatrixErrorCode errorCode, double value)
-    //    {
-    //        Errored = true;
-    //        ErrorCode = errorCode;
-    //        string desc = errorCode.ToString() + ": " + "Value = " + value.ToString();
-    //        throw new Exception(desc);
-    //    }
-
-
-
-    //}
-
-
 }

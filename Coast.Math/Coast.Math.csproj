@@ -42,18 +42,29 @@
   <ItemGroup>
     <Compile Include="Distance.cs" />
     <Compile Include="Flatness.cs" />
+    <Compile Include="Geometry\Circle2d.cs" />
+    <Compile Include="Geometry\Circle3d.cs" />
+    <Compile Include="Geometry\Line2d.cs" />
+    <Compile Include="Geometry\Line3d.cs" />
     <Compile Include="LinearEquations.cs" />
     <Compile Include="LinearEquationsErrorCode.cs" />
-    <Compile Include="Matrix.cs" />
-    <Compile Include="MatrixErrorCode.cs" />
-    <Compile Include="MeasMath.cs" />
+    <Compile Include="Matrix\Matrix3X4.cs" />
+    <Compile Include="Matrix\Matrix3X3.cs" />
+    <Compile Include="Matrix\MatrixNxM.cs" />
+    <Compile Include="Matrix\MatrixErrorCode.cs" />
+    <Compile Include="Geometry\Plane.cs" />
     <Compile Include="PlaneFitter.cs" />
     <Compile Include="PlaneFitterErrorCode.cs" />
+    <Compile Include="Vector\Vector2.cs" />
+    <Compile Include="Vector\Vector1.cs" />
+    <Compile Include="Vector\Vector3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\DeepCopy.cs" />
-    <Compile Include="Vectors.cs" />
+    <Compile Include="Vector\Vector4.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Primitives\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Documents\Note_LinearEquations.txt" />
   </ItemGroup>
