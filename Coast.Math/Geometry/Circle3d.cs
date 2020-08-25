@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Coast.Math
 {
-    class Circle3d
+    public class Circle3d
     {
     }
 }

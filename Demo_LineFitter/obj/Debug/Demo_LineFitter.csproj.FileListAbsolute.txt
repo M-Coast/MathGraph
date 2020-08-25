@@ -1,0 +1,38 @@
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\bin\Debug\Demo_LineFitter.exe.config
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\bin\Debug\Demo_LineFitter.exe
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\bin\Debug\Demo_LineFitter.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\bin\Debug\Coast.Controls.dll
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\bin\Debug\Coast.Math.dll
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\bin\Debug\Coast.Controls.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\bin\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.csprojResolveAssemblyReference.cache
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\MainWindow.g.cs
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\App.g.cs
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter_MarkupCompile.cache
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter_MarkupCompile.lref
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\MainWindow.baml
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.g.resources
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.Properties.Resources.resources
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.csproj.GenerateResource.Cache
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.exe
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LineFitter\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\bin\Debug\Demo_LineFitter.exe.config
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.exe
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\bin\Debug\Demo_LineFitter.exe
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\bin\Debug\Demo_LineFitter.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\bin\Debug\Coast.Controls.dll
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\bin\Debug\Coast.Math.dll
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\bin\Debug\Coast.Controls.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\bin\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.csprojResolveAssemblyReference.cache
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\MainWindow.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\App.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter_MarkupCompile.cache
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter_MarkupCompile.lref
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\MainWindow.baml
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.g.resources
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.Properties.Resources.resources
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LineFitter\obj\Debug\Demo_LineFitter.csproj.GenerateResource.Cache

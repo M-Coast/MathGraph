@@ -1,0 +1,20 @@
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\obj\Debug\Coast.Controls_MarkupCompile.cache
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\obj\Debug\Coast.Controls_MarkupCompile.lref
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.dll
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\bin\Debug\Coast.Controls.dll
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\bin\Debug\Coast.Controls.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\obj\Debug\CoordinateSystem2d\_Style.baml
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.g.resources
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Coast.Controls\obj\Debug\Themes\Generic.baml
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\bin\Debug\Coast.Controls.dll
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\bin\Debug\Coast.Controls.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls_MarkupCompile.cache
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls_MarkupCompile.lref
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\CoordinateSystem2d\_Style.baml
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Themes\Generic.baml
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.g.resources
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.dll
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.pdb

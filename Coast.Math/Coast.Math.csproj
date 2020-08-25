@@ -41,20 +41,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Distance.cs" />
+    <Compile Include="Fitters\LineFitter\LineFitter.cs" />
+    <Compile Include="Fitters\LineFitter\LineFitterErrorCode.cs" />
     <Compile Include="Flatness.cs" />
     <Compile Include="Geometry\Circle2d.cs" />
     <Compile Include="Geometry\Circle3d.cs" />
     <Compile Include="Geometry\Line2d.cs" />
     <Compile Include="Geometry\Line3d.cs" />
-    <Compile Include="LinearEquations.cs" />
-    <Compile Include="LinearEquationsErrorCode.cs" />
+    <Compile Include="LinearEquations\LinearEquations.cs" />
+    <Compile Include="LinearEquations\LinearEquationsErrorCode.cs" />
     <Compile Include="Matrix\Matrix3X4.cs" />
     <Compile Include="Matrix\Matrix3X3.cs" />
     <Compile Include="Matrix\MatrixNxM.cs" />
     <Compile Include="Matrix\MatrixErrorCode.cs" />
     <Compile Include="Geometry\Plane.cs" />
-    <Compile Include="PlaneFitter.cs" />
-    <Compile Include="PlaneFitterErrorCode.cs" />
+    <Compile Include="Fitters\PlaneFitter\PlaneFitter.cs" />
+    <Compile Include="Fitters\PlaneFitter\PlaneFitterErrorCode.cs" />
     <Compile Include="Vector\Vector2.cs" />
     <Compile Include="Vector\Vector1.cs" />
     <Compile Include="Vector\Vector3.cs" />

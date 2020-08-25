@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Collections.ObjectModel;
+
 using Coast.Math;
 
 namespace Demo_PlaneFitter
@@ -36,7 +38,7 @@ namespace Demo_PlaneFitter
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SolvePlane();
+            Solve();
         }
 
 
@@ -97,10 +99,9 @@ namespace Demo_PlaneFitter
             DependencyProperty.Register("ErrorCode", typeof(PlaneFitterErrorCode), typeof(MainWindow), new PropertyMetadata());
 
 
-
         private PlaneFitter _planeFitter = new PlaneFitter();
 
-        private void SolvePlane()
+        private void Solve()
         {
             _planeFitter.Points = TestPoints;
             _planeFitter.Solve();

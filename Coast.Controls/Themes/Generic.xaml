@@ -1,0 +1,13 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Coast.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Coast.Controls;component/CoordinateSystem2d/_Style.xaml"/>
+        <!--<ResourceDictionary Source="Coast.Controls;component/CS2dGraph/_Style.xaml"/>-->
+    </ResourceDictionary.MergedDictionaries>
+
+
+
+</ResourceDictionary>

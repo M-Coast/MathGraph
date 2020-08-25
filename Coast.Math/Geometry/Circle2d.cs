@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Coast.Math
 {
-    class Circle2d
+    public class Circle2d
     {
-        
+
     }
 }

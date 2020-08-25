@@ -30,3 +30,35 @@ C:\Users\MA\Documents\GitHub\Math_Solution\Demo_LinearEquations\obj\Debug\MainWi
 C:\Users\MA\Documents\GitHub\Math_Solution\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.g.resources
 C:\Users\MA\Documents\GitHub\Math_Solution\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.Properties.Resources.resources
 C:\Users\MA\Documents\GitHub\Math_Solution\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.csproj.GenerateResource.Cache
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\bin\Debug\Demo_LinearEquations.exe.config
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\bin\Debug\Demo_LinearEquations.exe
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\bin\Debug\Demo_LinearEquations.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\bin\Debug\Coast.Math.dll
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\bin\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.csprojResolveAssemblyReference.cache
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\MainWindow.g.cs
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\App.g.cs
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations_MarkupCompile.cache
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations_MarkupCompile.lref
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\MainWindow.baml
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.g.resources
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.Properties.Resources.resources
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.csproj.GenerateResource.Cache
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.exe
+C:\Users\MA\Documents\Visual Studio 2015\Projects\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\bin\Debug\Demo_LinearEquations.exe.config
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\bin\Debug\Demo_LinearEquations.exe
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\bin\Debug\Demo_LinearEquations.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\bin\Debug\Coast.Math.dll
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\bin\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.csprojResolveAssemblyReference.cache
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\MainWindow.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\App.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations_MarkupCompile.cache
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations_MarkupCompile.lref
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\MainWindow.baml
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.g.resources
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.Properties.Resources.resources
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.csproj.GenerateResource.Cache
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.exe
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_LinearEquations\obj\Debug\Demo_LinearEquations.pdb
