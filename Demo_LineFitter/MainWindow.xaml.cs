@@ -132,7 +132,7 @@ namespace Demo_LineFitter
                     Y = point.Y,
                     Stroke = new SolidColorBrush(Colors.Brown),
                     FillBrush = new SolidColorBrush(Colors.Brown),
-                    Size = 2,
+                    Size = 1,
                     Thickness = 0,
                 });
             }
@@ -159,7 +159,7 @@ namespace Demo_LineFitter
 
             double xSpace = 1.0;
 
-            int xPointCount = 2;
+            int xPointCount = 10;
 
             List<Vector2> points = new List<Vector2>();
 
@@ -175,45 +175,44 @@ namespace Demo_LineFitter
 
         private void CreatePoints2()
         {
-            double a = 0.5;
+            double a = 1;
             double b = 2;
 
             Line2d plane = new Line2d(a, b);
 
             double xSpace = 1.0;
 
-            int xPointCount = 10;
+            int xPointCount = 100;
 
             List<Vector2> points = new List<Vector2>();
 
             for (int i = 0; i < xPointCount; i++)
             {
-                double x = xSpace * i;
-                double y = plane.GetY(x);
+                double x = xSpace * i + NextRangedRandomNumber(xSpace);
+                double y = plane.GetY(x) + NextRangedRandomNumber(5);
                 points.Add(new Vector2(x, y));
             }
-
 
             TestPoints = points;
         }
 
         private void CreatePoints3()
         {
-            double a = 4;
+            double a = 0.5;
             double b = 7;
 
             Line2d plane = new Line2d(a, b);
 
             double xSpace = 1.0;
 
-            int xPointCount = 20;
+            int xPointCount = 200;
 
             List<Vector2> points = new List<Vector2>();
 
             for (int i = 0; i < xPointCount; i++)
             {
-                double x = xSpace * i;
-                double y = plane.GetY(x);
+                double x = xSpace * i + NextRangedRandomNumber(xSpace);
+                double y = plane.GetY(x) + NextRangedRandomNumber(20);
                 points.Add(new Vector2(x, y));
             }
 
@@ -242,6 +241,14 @@ namespace Demo_LineFitter
 
 
             TestPoints = points;
+        }
+
+
+        Random r = new Random();
+
+        private double NextRangedRandomNumber(double range)
+        {
+            return range * r.NextDouble();
         }
 
         private void SetPointsToCS2d()

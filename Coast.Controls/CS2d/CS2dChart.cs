@@ -73,7 +73,7 @@ namespace Coast.Controls
             content.Elements = this.Elements;
             content.Transform = this.Transform;
         }
-        
+
         private void SetAxis()
         {
             if (Elements == null) return;
@@ -111,33 +111,35 @@ namespace Coast.Controls
             if (xMax - xMin <= 0) Errored = true;
             if (yMax - yMin <= 0) Errored = true;
 
-            double xR = xMax - xMin;
-            double yR = yMax - yMin;
-            double R;
+            base.UpdateLayout();
 
-            if (xR > yR)
+            double xAxisSize = XAxis.ActualWidth;
+            double yAxisSize = YAxis.ActualHeight;
+
+            double xScale = (xMax - xMin) / xAxisSize;
+            double yScale = (yMax - yMin) / yAxisSize;
+
+            double xTickCount = DisireXAxisTickCount;
+            double yTickCount = DisireYAxisTickCount;
+
+            if (xScale > yScale)
             {
-                R = xR;
+                XRangeLow = xMin;
+                XRangeHigh = xMax;
+                YRangeLow = yMin;
+                YRangeHigh = yMin + xScale * yAxisSize;
+                double space = (XRangeHigh - XRangeLow) / xTickCount;
+                yTickCount = (YRangeHigh - YRangeLow) / space;
             }
             else
             {
-                R = yR;
+                XRangeLow = xMin;
+                XRangeHigh = xMin + yScale * xAxisSize;
+                YRangeLow = yMin;
+                YRangeHigh = yMax ;
+                double space = (YRangeHigh - YRangeLow) / yTickCount;
+                xTickCount = (XRangeHigh - XRangeLow) / space;
             }
-
-            XRangeLow = xMin - R * RangeExtendRate;
-            XRangeHigh = xMax + R + R * RangeExtendRate;
-            YRangeLow = yMin - R * RangeExtendRate;
-            YRangeHigh = yMax + R+ R * RangeExtendRate;
-
-            //XRangeLow = xMin - xR * RangeExtendRate;
-            //XRangeHigh = xMax + xR * RangeExtendRate;
-            //YRangeLow = yMin - yR * RangeExtendRate;
-            //YRangeHigh = yMax + yR * RangeExtendRate;
-
-            //XRangeLow = xMin;
-            //XRangeHigh = xMax;
-            //YRangeLow = yMin;
-            //YRangeHigh = yMax;
 
             XAxis.RangeLowerLimit = XRangeLow;
             XAxis.RangeUpperLimit = XRangeHigh;
@@ -147,16 +149,16 @@ namespace Coast.Controls
             List<AxisTick> xAxisTicks = new List<AxisTick>();
             List<AxisTick> yAxisTicks = new List<AxisTick>();
 
-            double xSpace = (R) / DisireXAxisTickCount;
-            double ySpace = (R) / DisireYAxisTickCount;
+            double xSpace = (XRangeHigh - XRangeLow) / xTickCount;
+            double ySpace = (YRangeHigh - YRangeLow) / yTickCount;
 
-            for (int i = 0; i < DisireXAxisTickCount; i++)
+            for (int i = 0; i < xTickCount; i++)
             {
                 double v = xMin + xSpace * (i + 1);
                 string s = v.ToString("F2");
                 xAxisTicks.Add(new AxisTick(v, s));
             }
-            for (int i = 0; i < DisireYAxisTickCount; i++)
+            for (int i = 0; i < yTickCount; i++)
             {
                 double v = yMin + ySpace * (i + 1);
                 string s = (v).ToString("F2");
@@ -165,7 +167,7 @@ namespace Coast.Controls
 
             //Call base.base.SetAxis
             SetAxis(XRangeLow, XRangeHigh, YRangeLow, YRangeHigh, xAxisTicks, yAxisTicks);
-            
+
         }
 
         private void PlotContent()
@@ -176,3 +178,112 @@ namespace Coast.Controls
         }
     }
 }
+
+
+//private void SetAxis_bk()
+//{
+//    if (Elements == null) return;
+
+//    double xMin = double.MaxValue;
+//    double xMax = double.MinValue;
+//    double yMin = double.MaxValue;
+//    double yMax = double.MinValue;
+//    foreach (CS2dShape element in Elements)
+//    {
+//        if (element is CS2dPoint)
+//        {
+//            CS2dPoint t = element as CS2dPoint;
+//            if (xMin > t.X) xMin = t.X;
+//            if (xMax < t.X) xMax = t.X;
+//            if (yMin > t.Y) yMin = t.Y;
+//            if (yMax < t.Y) yMax = t.Y;
+//        }
+//        else if (element is CS2dLine)
+//        {
+//            CS2dLine t = element as CS2dLine;
+
+//            if (xMin > t.StartPoint.X) xMin = t.StartPoint.X;
+//            if (xMax < t.StartPoint.X) xMax = t.StartPoint.X;
+//            if (yMin > t.StartPoint.Y) yMin = t.StartPoint.Y;
+//            if (yMax < t.StartPoint.Y) yMax = t.StartPoint.Y;
+
+//            if (xMin > t.EndPoint.X) xMin = t.EndPoint.X;
+//            if (xMax < t.EndPoint.X) xMax = t.EndPoint.X;
+//            if (yMin > t.EndPoint.Y) yMin = t.EndPoint.Y;
+//            if (yMax < t.EndPoint.Y) yMax = t.EndPoint.Y;
+
+//        }
+//    }
+//    if (xMax - xMin <= 0) Errored = true;
+//    if (yMax - yMin <= 0) Errored = true;
+
+//    base.UpdateLayout();
+
+//    double xAxisLength = XAxis.ActualWidth;
+//    double yAxisLength = YAxis.ActualHeight;
+
+
+//    double xR = xMax - xMin;
+//    double yR = yMax - yMin;
+//    double R;
+
+
+//    double scaleX = xR / xAxisLength;
+//    double scaleY = yR / yAxisLength;
+
+
+
+
+
+//    if (xR > yR)
+//    {
+//        R = xR;
+//    }
+//    else
+//    {
+//        R = yR;
+//    }
+
+//    XRangeLow = xMin - R * RangeExtendRate;
+//    XRangeHigh = xMax + R + R * RangeExtendRate;
+//    YRangeLow = yMin - R * RangeExtendRate;
+//    YRangeHigh = yMax + R + R * RangeExtendRate;
+
+//    //XRangeLow = xMin - xR * RangeExtendRate;
+//    //XRangeHigh = xMax + xR * RangeExtendRate;
+//    //YRangeLow = yMin - yR * RangeExtendRate;
+//    //YRangeHigh = yMax + yR * RangeExtendRate;
+
+//    //XRangeLow = xMin;
+//    //XRangeHigh = xMax;
+//    //YRangeLow = yMin;
+//    //YRangeHigh = yMax;
+
+//    XAxis.RangeLowerLimit = XRangeLow;
+//    XAxis.RangeUpperLimit = XRangeHigh;
+//    YAxis.RangeLowerLimit = YRangeLow;
+//    YAxis.RangeUpperLimit = YRangeHigh;
+
+//    List<AxisTick> xAxisTicks = new List<AxisTick>();
+//    List<AxisTick> yAxisTicks = new List<AxisTick>();
+
+//    double xSpace = (R) / DisireXAxisTickCount;
+//    double ySpace = (R) / DisireYAxisTickCount;
+
+//    for (int i = 0; i < DisireXAxisTickCount; i++)
+//    {
+//        double v = xMin + xSpace * (i + 1);
+//        string s = v.ToString("F2");
+//        xAxisTicks.Add(new AxisTick(v, s));
+//    }
+//    for (int i = 0; i < DisireYAxisTickCount; i++)
+//    {
+//        double v = yMin + ySpace * (i + 1);
+//        string s = (v).ToString("F2");
+//        yAxisTicks.Add(new AxisTick(v, s));
+//    }
+
+//    //Call base.base.SetAxis
+//    SetAxis(XRangeLow, XRangeHigh, YRangeLow, YRangeHigh, xAxisTicks, yAxisTicks);
+
+//}
