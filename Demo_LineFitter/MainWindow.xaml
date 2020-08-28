@@ -121,7 +121,7 @@
 
             <Grid Grid.Column="2" Margin="3">
                 <Border BorderBrush="Gray" BorderThickness="1">
-                    <CoastControls:CS2dChart x:Name="_canvas"></CoastControls:CS2dChart>
+                    <CoastControls:CS2d x:Name="_canvas"></CoastControls:CS2d>
                 </Border>
             </Grid>
 

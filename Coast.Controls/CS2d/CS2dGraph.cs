@@ -12,32 +12,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 
 namespace Coast.Controls
 {
     public class CS2dGraph : Control
     {
-
         public CS2dGraph()
         {
 
         }
 
-        public string Title { get; set; }
-        public Transform Transform { get; set; }
-        public ObservableCollection<CS2dShape> Elements { get; set; }
+        public CS2dBase CS { get; set; }
 
 
-        public virtual void Plot()
+        // HitTestCore Remarks MSDN
+        // 可以通过重写 HitTestCore 方法来重写对视觉对象的默认命中测试支持。 这意味着，在调用 HitTest 方法时，将调用 HitTestCore 的重写实现。 
+        // 当命中测试位于可视对象的边框内时，将调用重写的方法，即使该坐标在视觉对象的几何图形之外也是如此。
+        //
+        // 重写位置命中测试方法 HitTestCore
+        // 使鼠标位置在按钮范围内即可命中触发
+        //
+        // Override default hit test support in visual object
+        protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters)
         {
-            this.InvalidateVisual();
-        }
+            Point pt = hitTestParameters.HitPoint;
 
+            // Perform custom actions during the hit test processing,
+            // which may include verifying that the point actually
+            // falls within the rendered content of the visual.
 
-        protected Point TransformXY(Point source)
-        {
-            return Transform.Transform(source);
+            // Return hit on bounding rectangle of visual object.
+            return new PointHitTestResult(this, pt);
         }
 
 
@@ -45,45 +50,36 @@ namespace Coast.Controls
         {
             base.OnRender(drawingContext);
 
-            if (Elements == null) return;
-            if (Transform == null) return;
+            if (CS != null) CS.GraphRender(drawingContext);
 
-            foreach (CS2dShape element in Elements)
-            {
-                if (element is CS2dPoint)
-                {
-                    DrawPoint(drawingContext, element as CS2dPoint);
-                }
-                else if (element is CS2dLine)
-                {
-                    DrawLine(drawingContext, element as CS2dLine);
-                }
-            }
         }
 
-        private void DrawPoint(DrawingContext drawingContext, CS2dPoint point)
+        protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
-            Point p = TransformXY(new Point(point.X, point.Y));
-
-            double r = point.Size;
-
-            Pen pen = point.Stroke == null ? null : new Pen(point.Stroke, 1);
-
-            Brush brush = point.FillBrush;
-
-            drawingContext.DrawEllipse(brush, pen, p, r, r);
+            base.OnMouseWheel(e);
+            if (CS != null) CS.GraphMouseWheel(e);
         }
 
-        private void DrawLine(DrawingContext drawingContext, CS2dLine line)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
-            Point p0 = TransformXY(line.StartPoint);
-            Point p1 = TransformXY(line.EndPoint);
-
-            Pen stroke = line.Stroke == null ? null : new Pen(line.Stroke, line.Thickness);
-
-            drawingContext.DrawLine(stroke, p0, p1);
+            base.OnMouseMove(e);
+            if (CS != null) CS.GraphMouseMove(e);
 
         }
+
+        protected override void OnMouseDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (CS != null) CS.GraphMouseDown(e);
+        }
+
+        protected override void OnMouseUp(MouseButtonEventArgs e)
+        {
+            base.OnMouseUp(e);
+            if (CS != null) CS.GraphMouseUp(e);
+        }
+
+
 
     }
 }

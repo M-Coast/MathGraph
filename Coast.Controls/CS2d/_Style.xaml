@@ -1,0 +1,69 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CoastControls="clr-namespace:Coast.Controls"
+    >
+
+    <ContextMenu x:Key="PART_ContextMenu">
+        <MenuItem Header="Auto Fit" Command="{Binding Command_AutoFit, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type CoastControls:CS2dBase}}}"></MenuItem>
+        <MenuItem Header="Restore" Command="{Binding Command_Restore, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type CoastControls:CS2dBase}}}"></MenuItem>
+        <MenuItem Header="Zoom +" Command="{Binding Command_ZoomIn, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type CoastControls:CS2dBase}}}"></MenuItem>
+        <MenuItem Header="Zoom -" Command="{Binding Command_ZoomOut, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type CoastControls:CS2dBase}}}"></MenuItem>
+    </ContextMenu>
+    
+    <Style TargetType="{x:Type CoastControls:CS2dBase}">
+        <Setter Property="ContextMenu" Value="{StaticResource PART_ContextMenu}"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CoastControls:CS2dBase}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                        <Grid x:Name="PART_MainGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="22"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="16"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+
+                            <Border Grid.Row="0" Grid.Column="1">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{TemplateBinding Title}" FontSize="15"></TextBlock>
+                            </Border>
+
+                            <CoastControls:CS2dAxisX Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" x:Name="PART_AxisX" ClipToBounds="True"></CoastControls:CS2dAxisX>
+                            <CoastControls:CS2dAxisY Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"  x:Name="PART_AxisY" ClipToBounds="True"></CoastControls:CS2dAxisY>
+
+                            <CoastControls:CS2dGraph Grid.Row="1" Grid.Column="1" x:Name="PART_Graph" Margin="0" ClipToBounds="True"></CoastControls:CS2dGraph>
+
+                            <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Background="BlueViolet">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="200"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="2" Background="Yellow">
+                                        <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Center" TextAlignment="Right"
+                                                   Margin="0,0,3,0"
+                                                   Text="{TemplateBinding MousePositionText}"></TextBlock>
+                                    </Border>
+                                </Grid>
+                            </Border> 
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    
+</ResourceDictionary>

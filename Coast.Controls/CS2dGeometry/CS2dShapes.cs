@@ -22,8 +22,7 @@ namespace Coast.Controls
             get { return (double)GetValue(StrokeThicknessProperty); }
             set { SetValue(StrokeThicknessProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for StrokeThickness.  This enables animation, styling, binding, etc...
+        
         public static readonly DependencyProperty StrokeThicknessProperty =
             DependencyProperty.Register("StrokeThickness", typeof(double), typeof(CS2dShape), new PropertyMetadata(1.0));
 

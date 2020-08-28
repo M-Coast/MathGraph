@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Coast.Controls
 {
-    public enum AxisAlignment
+    public enum CS2dScaleMode
     {
-        VerticalLeft,
-        VerticalRight,
-        HorizontalTop,
-        HorizontalBottom,
+        Default,
+        Self,
+        XYSameScale,
     }
 }

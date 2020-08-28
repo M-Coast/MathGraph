@@ -48,18 +48,22 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Axis\Axis.cs" />
-    <Compile Include="Axis\AxisAlignment.cs" />
-    <Compile Include="Axis\AxisTick.cs" />
-    <Compile Include="CoordinateSystem2d\CoordinateSystem2d.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="CS2d\CS2d.cs" />
+    <Compile Include="CS2d\CS2dAxis.cs" />
+    <Compile Include="CS2d\CS2dAxisTick.cs" />
+    <Compile Include="CS2d\CS2dAxisX.cs" />
+    <Compile Include="CS2d\CS2dAxisY.cs" />
+    <Compile Include="CS2d\CS2dBase.cs" />
     <Compile Include="CS2d\CS2dGraph.cs" />
-    <Compile Include="CS2d\CS2dChart.cs" />
-    <Compile Include="CS2d\CS2dShapes.cs" />
+    <Compile Include="CS2d\CS2dScaleMode.cs" />
+    <Compile Include="CS2dGeometry\CS2dShapes.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="CoordinateSystem2d\_Style.xaml">
+    <Page Include="CS2d\_Style.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
