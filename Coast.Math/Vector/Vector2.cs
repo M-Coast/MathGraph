@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*****************************************************************************************
+
+    MathGraph
+    
+    Copyright (C)  Coast
+
+
+    AUTHOR      :  Coast   
+    DATE        :  2020/8/27
+    DESCRIPTION :  
+
+ *****************************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -91,7 +104,7 @@ namespace Coast.Math
         {
             return new Vector2(vector1.X + vector2.X, vector1.Y + vector2.Y);
         }
-        
+
         public static Vector2 operator -(Vector2 vector)
         {
             return new Vector2(vector.X * -1.0, vector.Y * -1.0);

@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*****************************************************************************************
+
+    MathGraph
+    
+    Copyright (C)  Coast
+
+
+    AUTHOR      :  Coast   
+    DATE        :  2020/8/27
+    DESCRIPTION :  
+
+ *****************************************************************************************/
+
+using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;

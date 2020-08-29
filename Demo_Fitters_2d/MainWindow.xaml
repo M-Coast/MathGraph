@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Demo_Fitters_2d"
         xmlns:CoastControls ="clr-namespace:Coast.Controls;assembly=Coast.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200">
+        Title="MathGraph" Height="800" Width="1200">
     <Grid>
         <TabControl SelectedIndex="2" TabStripPlacement="Top">
             <TabItem Header="LineFitter">
