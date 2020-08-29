@@ -50,17 +50,17 @@ namespace Coast.Math
 
     //Forward Elimination Round: 1
     //Matrix 3X4
-    //9.00	-1.00	-1.00	7.00	
+    //1.00	-0.11	-0.11	0.78	
     //0.00	9.89	-1.11	8.78	
     //0.00	-1.11	14.89	13.78	
 
     //Forward Elimination Round: 2
     //Matrix 3X4
-    //9.00	-1.00	-1.00	7.00	
-    //0.00	9.89	-1.11	8.78	
+    //1.00	-0.11	-0.11	0.78	
+    //0.00	1.00	-0.11	0.89	
     //0.00	0.00	14.76	14.76	
 
-    //Normalized
+    //Forward Elimination Round: 3
     //Matrix 3X4
     //1.00	-0.11	-0.11	0.78	
     //0.00	1.00	-0.11	0.89	
@@ -84,7 +84,7 @@ namespace Coast.Math
     //0.00	1.00	0.00	1.00	
     //0.00	0.00	1.00	1.00	
 
-    //Result
+    //Output
     //1.00
     //1.00
     //1.00
@@ -123,6 +123,8 @@ namespace Coast.Math
         public bool Errored { get; private set; } = false;
         public LinearEquationsErrorCode ErrorCode { get; private set; } = LinearEquationsErrorCode.NoError;
 
+        public double ZeroEqualityThreshold { get; set; } = 1E-7;    //判断等于0的条件
+
         private MatrixNxM _matrix = null;
 
 
@@ -158,7 +160,7 @@ namespace Coast.Math
             if (!ForwardEliminate()) return false;
 
             //Normalize
-            if (!Normalize()) return false;
+            //if (!NormalizeAllRows()) return false;
 
             //Backward Elimination
             if (!BackwardEliminate()) return false;
@@ -209,10 +211,10 @@ namespace Coast.Math
 
             return true;
         }
-
+        
         private bool SelectPivotRow(int rowStart, int column)
         {
-            if (rowStart >= _matrix.Rows - 1)
+            if (rowStart >= _matrix.Rows)
             {
                 SetError(LinearEquationsErrorCode.MatrixError);
                 return false;
@@ -221,6 +223,7 @@ namespace Coast.Math
             double max = double.MinValue;
             int rowFound = -1;
 
+            //选取绝对值最大的行
             for (int j = rowStart; j < _matrix.Rows; j++)
             {
                 if (max < System.Math.Abs(_matrix[rowStart, column]))
@@ -237,16 +240,16 @@ namespace Coast.Math
 
         private bool Eliminate(int dstRow, int srcRow, int eliminateColumn)
         {
-            if (_matrix[srcRow, eliminateColumn] == 0)
-            {
-                //All conditions have been Committed before this,
-                //If still goes into this branch, there might be some unknown bug
-                throw new DivideByZeroException();
-            }
+            //if (WeakEqualsToZero(_matrix[srcRow, eliminateColumn]))
+            //{
+            //    //All conditions have been Committed before this,
+            //    //If still goes into this branch, there might be some unknown bug
+            //    throw new DivideByZeroException();
+            //}
 
             double factor = _matrix[dstRow, eliminateColumn] / _matrix[srcRow, eliminateColumn] * -1;
 
-            for (int i = 0; i < _matrix.Columns; i++)
+            for (int i = eliminateColumn; i < _matrix.Columns; i++)
             {
                 _matrix[dstRow, i] = _matrix[dstRow, i] + _matrix[srcRow, i] * factor;
             }
@@ -254,20 +257,32 @@ namespace Coast.Math
             return true;
         }
 
+
+        //消元流程
+        //  从第0行起，选择主元行，移动到当前行，归一化处理，，，往下消元，直至最后一行
+        //  最后一行，只需要归一化处理，不需要往下消元
         private bool ForwardEliminate()
         {
-            for (int k = 0; k < _matrix.Rows - 1; k++)
+            for (int k = 0; k < _matrix.Rows; k++)
             {
                 if (!SelectPivotRow(k, k)) return false;
 
                 //Pivot Element is 0, No exact result for some(one or more than one) Rows, Classified to NoSolution
-                if (_matrix[k, k] == 0)
+                if (WeakEqualsToZero(_matrix[k, k]))
                 {
                     SetError(LinearEquationsErrorCode.NoSolution); return false;
                 }
-                for (int j = k + 1; j < _matrix.Rows; j++)
+
+                //Normalize This Row
+                _matrix.Scale(1.0 / _matrix[k, k], k);
+
+                //判断行数并消元，前N-1行需要往下消，最后一行不需要往下消
+                if (k < _matrix.Rows - 1)
                 {
-                    if (!Eliminate(j, k, k)) return false;
+                    for (int j = k + 1; j < _matrix.Rows; j++)
+                    {
+                        if (!Eliminate(j, k, k)) return false;
+                    }
                 }
 
                 Debug.Print("Forward Elimination Round: " + (k + 1).ToString());
@@ -275,16 +290,18 @@ namespace Coast.Math
             }
             return true;
         }
-
+        
+        //反向消元
         private bool BackwardEliminate()
         {
             for (int k = _matrix.Rows - 1; k > 0; k--)
             {
+                //正向消元时已经判断过，此处可以省略
                 //Pivot Element is 0, No exact result for some(one or more than one) Rows, Classified to NoSolution
-                if (_matrix[k, k] == 0)
-                {
-                    SetError(LinearEquationsErrorCode.NoSolution); return false;
-                }
+                //if (WeakEqualsToZero(_matrix[k, k]))
+                //{
+                //    SetError(LinearEquationsErrorCode.NoSolution); return false;
+                //}
 
                 for (int j = k - 1; j >= 0; j--)
                 {
@@ -297,24 +314,9 @@ namespace Coast.Math
             return true;
         }
 
-        private bool Normalize()
+        private bool WeakEqualsToZero(double value)
         {
-            for (int j = 0; j < _matrix.Rows; j++)
-            {
-                double factor = 1.0 / _matrix[j, j];
-
-                //Pivot Element is 0, No exact result for some(one or more than one) Rows, Classified to NoSolution
-                if (_matrix[j, j] == 0.0)
-                {
-                    SetError(LinearEquationsErrorCode.NoSolution); return false;
-                }
-                _matrix.Scale(factor, j);
-            }
-
-            Debug.Print("Normalized");
-            Debug.Print(_matrix.ToString());
-
-            return true;
+            return System.Math.Abs(value - 0.0) <= ZeroEqualityThreshold;
         }
 
         private void OutputResult()
@@ -325,8 +327,9 @@ namespace Coast.Math
             for (int k = 0; k < _matrix.Rows; k++)
             {
                 Result[k] = _matrix[k, _matrix.Columns - 1];
-                Debug.Print(Result[k].ToString("F2"));
+                Debug.Print(Result[k].ToString("F6"));
             }
+            Debug.Print("\r\n");
 
 
         }
@@ -335,6 +338,9 @@ namespace Coast.Math
 
 
 }
+
+
+
 
 
 

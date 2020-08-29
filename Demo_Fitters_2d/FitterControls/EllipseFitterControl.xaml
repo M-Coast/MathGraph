@@ -1,0 +1,207 @@
+﻿<UserControl x:Class="Demo_Fitters_2d.EllipseFitterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Demo_Fitters_2d"
+             xmlns:CoastControls ="clr-namespace:Coast.Controls;assembly=Coast.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border  Grid.Column="0" BorderBrush="Blue" BorderThickness="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" BorderBrush="DarkGray" BorderThickness="1" Margin="3" Background="#FFCCCCCC">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0">
+                                    <TextBlock Text="Input" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                </Border>
+                                <ComboBox Grid.Column="1" x:Name="comboTestData" SelectionChanged="TestData_SelectionChanged" Margin="3">
+                                    <ComboBoxItem Content="TestData1"></ComboBoxItem>
+                                    <ComboBoxItem Content="TestData2"></ComboBoxItem>
+                                    <ComboBoxItem Content="TestData3"></ComboBoxItem>
+                                    <ComboBoxItem Content="TestData4"></ComboBoxItem>
+                                </ComboBox>
+                            </Grid>
+
+                            <DataGrid Grid.Row="1" x:Name="dataGridInputData" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible"
+                                      ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=TestPoints}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="X" Width="*" Binding="{Binding Path=X,StringFormat=F3}">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style>
+                                                <Setter Property="FrameworkElement.HorizontalAlignment" Value="Right"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="Y" Width="*" Binding="{Binding Path=Y,StringFormat=F3}">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style>
+                                                <Setter Property="FrameworkElement.HorizontalAlignment" Value="Right"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1" BorderBrush="DarkGray" BorderThickness="1" Margin="3" Background="#FFCCCCCC">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0">
+                                    <TextBlock Text="Output" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                </Border>
+                            </Grid>
+
+
+                            <Grid Grid.Row="1">
+                                <StackPanel>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.cx" TitleWidth="80" 
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.cx}"
+                                        BorderThickness="1,1,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.cy" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.cy}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.ra" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.ra}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.rb" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.rb}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.th" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.th}"                                       
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="" TitleWidth="80"
+                                        Value="1"
+                                        ValueBackground="Transparent"
+                                        Format="-"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.A" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.A}"
+                                        Format="F9"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.B" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.B}"
+                                        Format="F9"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.C" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.C}"
+                                        Format="F9"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.D" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.D}"
+                                        Format="F9"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Ellipse.E" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=Ellipse.E}"
+                                        Format="F9"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+
+                                </StackPanel>
+                            </Grid>
+                            
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="3">
+                        <Button Grid.Column="0" Content="Calculate" Margin="3" Click="Button_Click"></Button>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Column="1" Margin="3">
+                <Border BorderBrush="Gray" BorderThickness="1">
+                    <CoastControls:CS2d x:Name="_cs2d"></CoastControls:CS2d>
+                </Border>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0">
+                <CoastControls:TitledValueControl Grid.Column="2" Title="AAAA" Value="123.456789" Width="160"></CoastControls:TitledValueControl>
+            </Border>
+    
+            <Border Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0">
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="Status" Margin="3,0,3,0"></TextBlock>
+                    </Border>
+                    <Border Grid.Column="1">
+                        <TextBlock x:Name="textBlockStatus" TextAlignment="Center" VerticalAlignment="Center"
+                               Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:EllipseFitterControl}},Path=ErrorCode,Mode=OneWay}">
+                        </TextBlock>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+        
+    </Grid>
+
+</UserControl>

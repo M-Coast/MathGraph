@@ -18,3 +18,7 @@ C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.g
 C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.dll
 C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.pdb
 C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\CS2d\_Style.baml
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\Coast.Controls.csprojResolveAssemblyReference.cache
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\bin\Debug\Coast.Math.dll
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\bin\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Controls\obj\Debug\TitledValueControl\_Style.baml

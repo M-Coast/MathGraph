@@ -1,0 +1,13 @@
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\bin\Debug\Demo_CircleFitter.exe.config
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\bin\Debug\Demo_CircleFitter.exe
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\bin\Debug\Demo_CircleFitter.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\MainWindow.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\App.g.cs
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\Demo_CircleFitter_MarkupCompile.cache
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\Demo_CircleFitter_MarkupCompile.lref
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\MainWindow.baml
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\Demo_CircleFitter.g.resources
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\Demo_CircleFitter.Properties.Resources.resources
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\Demo_CircleFitter.csproj.GenerateResource.Cache
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\Demo_CircleFitter.exe
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_CircleFitter\obj\Debug\Demo_CircleFitter.pdb

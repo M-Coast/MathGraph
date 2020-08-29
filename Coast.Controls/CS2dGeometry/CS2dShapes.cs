@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Coast.Math;
+
 namespace Coast.Controls
 {
     public class CS2dShape : DependencyObject
@@ -53,23 +55,29 @@ namespace Coast.Controls
 
     public class CS2dPoint:CS2dShape
     {
-        //public Point Point { set; get; }
         public double X { set; get; }
         public double Y { set; get; }
         public double Size { set; get; }
         public int  Apperance { set; get; }
+
+        Vector2 Value { set; get; }
     }
 
     public class CS2dLine : CS2dShape
     {
         public Point StartPoint { set; get; }
         public Point EndPoint { set; get; }
+
+        public Line2d Value { set; get; }
     }
 
     public class CS2dCircle : CS2dShape
     {
-        public Point Center { set; get; }
+        public double CenterX { set; get; }
+        public double CenterY { set; get; }
+        public Point Center { get { return new Point(CenterX, CenterY); } }
         public double Radius { set; get; }
+        public Circle2d Value { set; get; }
     }
 
     public class CS2dArc : CS2dCircle

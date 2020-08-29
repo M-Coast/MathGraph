@@ -1,0 +1,77 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CoastControls="clr-namespace:Coast.Controls"
+    xmlns:Converters="clr-namespace:Coast.Controls.Converters"
+    >
+
+    
+    <Converters:GenericFormatMultiConverter x:Key="GenericFormatMultiConverter"/>
+
+    <Style TargetType="{x:Type CoastControls:TitledValueControl}">
+        <Setter Property="BorderBrush" Value="DarkGray"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <!--<Setter Property="Background" Value="LightGray"></Setter>-->
+        <!--<Setter Property="Foreground" Value="Black"></Setter>-->
+        <Setter Property="TitleForeground" Value="Black"></Setter>
+        <Setter Property="ValueBackground" Value="White"></Setter>
+        <Setter Property="TitleWidth" Value="Auto"></Setter>
+        <Setter Property="TitleTextAlignment" Value="Left"></Setter>
+        <Setter Property="Format" Value="F3"></Setter>
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CoastControls:TitledValueControl}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{TemplateBinding TitleWidth}"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Background="{TemplateBinding Background}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="5"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="1" Text="{TemplateBinding Title}"
+                                               TextAlignment="{TemplateBinding TitleTextAlignment}" VerticalAlignment="Center"
+                                               Foreground="{TemplateBinding TitleForeground}"></TextBlock>
+                                </Grid>
+                            </Border>
+
+                            <Border Grid.Column="1" 
+                                    Background="{TemplateBinding ValueBackground}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="1"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Grid.Column="1" 
+                                             TextAlignment="{TemplateBinding ValueTextAlignment}" VerticalContentAlignment="Center" 
+                                             VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                             Background="Transparent" Foreground="{TemplateBinding Foreground}"
+                                             BorderThickness="0">
+                                        <TextBox.Text>
+                                            <MultiBinding Converter="{StaticResource GenericFormatMultiConverter}">
+                                                <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type CoastControls:TitledValueControl}}" Path="Value"></Binding>
+                                                <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type CoastControls:TitledValueControl}}" Path="Format"></Binding>
+                                            </MultiBinding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </Grid>
+                            </Border>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

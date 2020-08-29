@@ -49,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\GenericFormatConverter.cs" />
+    <Compile Include="Converters\GenericFormatMultiConverter.cs" />
     <Compile Include="CS2d\CS2d.cs" />
     <Compile Include="CS2d\CS2dAxis.cs" />
     <Compile Include="CS2d\CS2dAxisTick.cs" />
@@ -60,8 +63,14 @@
     <Compile Include="CS2dGeometry\CS2dShapes.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TitledValueControl\TitledValueControl.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Coast.Math\Coast.Math.csproj">
+      <Project>{121d8792-baf5-4b25-a758-8a3dbb0ff17c}</Project>
+      <Name>Coast.Math</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="CS2d\_Style.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -71,6 +80,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="TitledValueControl\_Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Converters\_Note\Note_GenericFormat.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -27,7 +27,7 @@ namespace Coast.Controls
         public ObservableCollection<CS2dShape> Elements
         {
             get { return _elements; }
-            set { _elements = value; SetRange(); }
+            set { _elements = value; UpdateElements(); }
         }
 
 
@@ -60,12 +60,16 @@ namespace Coast.Controls
                 {
                     DrawLine(drawingContext, element as CS2dLine);
                 }
+                else if(element is CS2dCircle)
+                {
+                    DrawCircle(drawingContext, element as CS2dCircle);
+                }
             }
         }
 
 
 
-        private void SetRange()
+        private void UpdateElements()
         {
             if (_elements == null) return;
 
@@ -98,6 +102,15 @@ namespace Coast.Controls
                     if (yMax < t.EndPoint.Y) yMax = t.EndPoint.Y;
 
                 }
+                else if (element is CS2dCircle)
+                {
+                    //CS2dCircle t = element as CS2dCircle;
+
+                    //if (xMin > t.CenterX - t.Radius) xMin = t.CenterX - t.Radius;
+                    //if (xMax < t.CenterX + t.Radius) xMax = t.CenterX + t.Radius;
+                    //if (yMin > t.CenterX - t.Radius) yMin = t.CenterX - t.Radius;
+                    //if (yMax < t.CenterX + t.Radius) yMax = t.CenterX + t.Radius;
+                }
             }
             if (xMax - xMin <= 0) Errored = true;
             if (yMax - yMin <= 0) Errored = true;
@@ -119,28 +132,52 @@ namespace Coast.Controls
 
         public ObservableCollection<CS2dShape> _elements = null;
 
-        private void DrawPoint(DrawingContext drawingContext, CS2dPoint point)
+
+        private void DrawPoint(DrawingContext drawingContext, CS2dPoint element)
         {
-            Point p = TransformXY(new Point(point.X, point.Y));
+            Point p = TransformXY(new Point(element.X, element.Y));
 
-            double r = point.Size;
+            double r = element.Size;
 
-            Pen pen = point.Stroke == null ? null : new Pen(point.Stroke, 1);
+            Pen pen = element.Stroke == null ? null : new Pen(element.Stroke, 1);
 
-            Brush brush = point.FillBrush;
+            Brush brush = element.FillBrush;
 
             drawingContext.DrawEllipse(brush, pen, p, r, r);
         }
 
-        private void DrawLine(DrawingContext drawingContext, CS2dLine line)
-        {
-            Point p0 = TransformXY(line.StartPoint);
-            Point p1 = TransformXY(line.EndPoint);
+        //private void DrawLine(DrawingContext drawingContext, CS2dLine line)
+        //{
+        //    Point p0 = TransformXY(line.StartPoint);
+        //    Point p1 = TransformXY(line.EndPoint);
 
-            Pen stroke = line.Stroke == null ? null : new Pen(line.Stroke, line.Thickness);
+        //    Pen stroke = line.Stroke == null ? null : new Pen(line.Stroke, line.Thickness);
+
+        //    drawingContext.DrawLine(stroke, p0, p1);
+
+        //}
+
+        private void DrawLine(DrawingContext drawingContext, CS2dLine element)
+        {
+            Point p0 = TransformXY(new Point(XLowerRange, element.Value.GetY(XLowerRange)));
+            Point p1 = TransformXY(new Point(XUpperRange, element.Value.GetY(XUpperRange)));
+
+            Pen stroke = element.Stroke == null ? null : new Pen(element.Stroke, element.Thickness);
 
             drawingContext.DrawLine(stroke, p0, p1);
 
+        }
+
+        private void DrawCircle(DrawingContext drawingContext, CS2dCircle element)
+        {
+            Pen stroke = element.Stroke == null ? null : new Pen(element.Stroke, element.Thickness);
+
+            drawingContext.DrawEllipse(
+                null,
+                stroke,
+                TransformXY(element.Center),
+                System.Math.Abs(TransformX(element.Radius) - TransformX(0)),
+                System.Math.Abs(TransformY(element.Radius) - TransformY(0)));
         }
 
 

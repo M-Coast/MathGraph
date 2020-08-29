@@ -11,7 +11,7 @@ namespace Coast.Controls
         public const double WeakEqualityLimit = 1E-8;
         public static bool WeakEquals(this double self, double value)
         {
-            return Math.Abs(self - value) <= WeakEqualityLimit ? true : false;
+            return System.Math.Abs(self - value) <= WeakEqualityLimit ? true : false;
         }
     }
 }

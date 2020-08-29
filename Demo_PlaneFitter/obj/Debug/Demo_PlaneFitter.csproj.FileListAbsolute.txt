@@ -65,3 +65,5 @@ C:\Users\MA\Documents\GitHub\MathGraph\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitt
 C:\Users\MA\Documents\GitHub\MathGraph\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.csproj.GenerateResource.Cache
 C:\Users\MA\Documents\GitHub\MathGraph\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.exe
 C:\Users\MA\Documents\GitHub\MathGraph\Demo_PlaneFitter\obj\Debug\Demo_PlaneFitter.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_PlaneFitter\bin\Debug\Coast.Controls.dll
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_PlaneFitter\bin\Debug\Coast.Controls.pdb

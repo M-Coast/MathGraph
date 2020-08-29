@@ -4,153 +4,134 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo_PlaneFitter"
-        xmlns:Converters="clr-namespace:Demo_PlaneFitter.Converters"
+        xmlns:CoastControls ="clr-namespace:Coast.Controls;assembly=Coast.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="800">
 
-    <Window.Resources>
-        <Converters:DoubleFormatF3Converter x:Key="DoubleFormatF3Converter"/>
-    </Window.Resources>
-
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
+    <Border Background="#FFFFFFFF">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0">
-                        <TextBlock Text="Input" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    </Border>
-                    <ComboBox Grid.Column="1" x:Name="comboTestData" SelectionChanged="comboTestData_SelectionChanged" Margin="3">
-                        <ComboBoxItem Content="TestData1"></ComboBoxItem>
-                        <ComboBoxItem Content="TestData2"></ComboBoxItem>
-                        <ComboBoxItem Content="TestData3"></ComboBoxItem>
-                        <ComboBoxItem Content="TestData4"></ComboBoxItem>
-                    </ComboBox>
-                </Grid>
-                <DataGrid Grid.Row="1" x:Name="dataGridInputData"
-                          ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=TestPoints}"></DataGrid>
-            </Grid>
-
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Border Grid.Column="0">
-                        <TextBlock Text="Output" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                    </Border>
-                </Grid>
-
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="22"></RowDefinition>
-                        <RowDefinition Height="22"></RowDefinition>
-                        <RowDefinition Height="22"></RowDefinition>
-                        <RowDefinition Height="22"></RowDefinition>
-                        <RowDefinition Height="22"></RowDefinition>
-                        <RowDefinition Height="22"></RowDefinition>
-                        <RowDefinition Height="22"></RowDefinition>
-                        <RowDefinition Height="22"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-
-                    <Border Grid.Row="0" Grid.Column="0" Background="LightGray" BorderBrush="DarkGray" BorderThickness="1">
-                        <TextBlock Text="Plane.a" VerticalAlignment="Center" ></TextBlock>
-                    </Border>
-                    <Border Grid.Row="1" Grid.Column="0" Background="LightGray" BorderBrush="DarkGray" BorderThickness="1">
-                        <TextBlock Text="Plane.b" VerticalAlignment="Center" ></TextBlock>
-                    </Border>
-                    <Border Grid.Row="2" Grid.Column="0" Background="LightGray" BorderBrush="DarkGray" BorderThickness="1">
-                        <TextBlock Text="Plane.c" VerticalAlignment="Center" ></TextBlock>
-                    </Border>
-
-                    <Border Grid.Row="3" Grid.Column="0" Background="LightGray" BorderBrush="DarkGray" BorderThickness="1">
-                        <TextBlock Text="Plane.A" VerticalAlignment="Center" ></TextBlock>
-                    </Border>
-                    <Border Grid.Row="4" Grid.Column="0" Background="LightGray" BorderBrush="DarkGray" BorderThickness="1">
-                        <TextBlock Text="Plane.B" VerticalAlignment="Center" ></TextBlock>
-                    </Border>
-                    <Border Grid.Row="5" Grid.Column="0" Background="LightGray" BorderBrush="DarkGray" BorderThickness="1">
-                        <TextBlock Text="Plane.C" VerticalAlignment="Center" ></TextBlock>
-                    </Border>
-                    <Border Grid.Row="6" Grid.Column="0" Background="LightGray" BorderBrush="DarkGray" BorderThickness="1">
-                        <TextBlock Text="Plane.D" VerticalAlignment="Center" ></TextBlock>
-                    </Border>
-
-                    
-                    
-                    <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" TextAlignment="Center"
-                            Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.a,Mode=OneWay,Converter={StaticResource DoubleFormatF3Converter}}">
-                    </TextBox>
-                    <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" TextAlignment="Center"
-                            Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.b,Mode=OneWay,Converter={StaticResource DoubleFormatF3Converter}}">
-                    </TextBox>
-                    <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch" TextAlignment="Center"
-                            Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.c,Mode=OneWay,Converter={StaticResource DoubleFormatF3Converter}}">
-                    </TextBox>
-                    <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Stretch" TextAlignment="Center"
-                            Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.A,Mode=OneWay,Converter={StaticResource DoubleFormatF3Converter}}">
-                    </TextBox>
-                    <TextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Stretch" TextAlignment="Center"
-                            Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.B,Mode=OneWay,Converter={StaticResource DoubleFormatF3Converter}}">
-                    </TextBox>
-                    <TextBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Stretch" TextAlignment="Center"
-                            Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.C,Mode=OneWay,Converter={StaticResource DoubleFormatF3Converter}}">
-                    </TextBox>
-                    <TextBox Grid.Row="6" Grid.Column="1" VerticalAlignment="Stretch" TextAlignment="Center"
-                            Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.D,Mode=OneWay,Converter={StaticResource DoubleFormatF3Converter}}">
-                    </TextBox>
-
-                </Grid>
-
-            </Grid>
-
-        </Grid>
-
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0">
-                    <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Status" Margin="3,0,3,0"></TextBlock>
-                </Border>
-                <Border Grid.Column="1">
-                    <TextBlock x:Name="textBlockStatus" TextAlignment="Center" VerticalAlignment="Center"
-                               Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=ErrorCode,Mode=OneWay}">
-                    </TextBlock>
-                </Border>
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <TextBlock Text="Input" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Border>
+                        <ComboBox Grid.Column="1" x:Name="comboTestData" SelectionChanged="comboTestData_SelectionChanged" Margin="3">
+                            <ComboBoxItem Content="TestData1"></ComboBoxItem>
+                            <ComboBoxItem Content="TestData2"></ComboBoxItem>
+                            <ComboBoxItem Content="TestData3"></ComboBoxItem>
+                            <ComboBoxItem Content="TestData4"></ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <DataGrid Grid.Row="1" x:Name="dataGridInputData"
+                          ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=TestPoints}"></DataGrid>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0">
+                            <TextBlock Text="Output" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        </Border>
+                    </Grid>
+
+
+                    <Grid Grid.Row="1">
+                        <StackPanel>
+                            <CoastControls:TitledValueControl 
+                                        Title="Plane.a" TitleWidth="80" 
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.a}"
+                                        BorderThickness="1,1,1,1"
+                                        Height="20"/>
+                            <CoastControls:TitledValueControl 
+                                        Title="Plane.b" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.b}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                            <CoastControls:TitledValueControl 
+                                        Title="Plane.c" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.c}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                            <CoastControls:TitledValueControl 
+                                        Title="" TitleWidth="80"
+                                        Value="1"
+                                        ValueBackground="Transparent"
+                                        Format="-"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                            <CoastControls:TitledValueControl 
+                                        Title="Plane.A" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.A}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                            <CoastControls:TitledValueControl 
+                                        Title="Plane.B" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.B}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                            <CoastControls:TitledValueControl 
+                                        Title="Plane.C" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.C}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+                            <CoastControls:TitledValueControl 
+                                        Title="Plane.D" TitleWidth="80"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Plane.D}"
+                                        BorderThickness="1,0,1,1"
+                                        Height="20"/>
+
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
             </Grid>
-            <Button Grid.Column="1" Content="Calculate" Margin="3" Click="Button_Click"></Button>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0">
+                        <TextBlock TextAlignment="Left" VerticalAlignment="Center" Text="Status" Margin="3,0,3,0"></TextBlock>
+                    </Border>
+                    <Border Grid.Column="1">
+                        <TextBlock x:Name="textBlockStatus" TextAlignment="Center" VerticalAlignment="Center"
+                               Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=ErrorCode,Mode=OneWay}">
+                        </TextBlock>
+                    </Border>
+                </Grid>
+                <Button Grid.Column="1" Content="Calculate" Margin="3" Click="Button_Click"></Button>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>

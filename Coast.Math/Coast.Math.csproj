@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Distance.cs" />
+    <Compile Include="Measurement\Distance.cs" />
+    <Compile Include="Fitters\CircleFitter\CircleFitter.cs" />
+    <Compile Include="Fitters\CircleFitter\CircleFitterErrorCode.cs" />
+    <Compile Include="Fitters\EllipseFitter\EllipseFitter.cs" />
+    <Compile Include="Fitters\EllipseFitter\EllipseFitterErrorCode.cs" />
     <Compile Include="Fitters\LineFitter\LineFitter.cs" />
     <Compile Include="Fitters\LineFitter\LineFitterErrorCode.cs" />
-    <Compile Include="Flatness.cs" />
+    <Compile Include="Measurement\Flatness.cs" />
+    <Compile Include="Geometry\Ellipse2d.cs" />
     <Compile Include="Geometry\Circle2d.cs" />
     <Compile Include="Geometry\Circle3d.cs" />
     <Compile Include="Geometry\Line2d.cs" />

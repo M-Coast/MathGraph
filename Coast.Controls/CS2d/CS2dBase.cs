@@ -270,6 +270,8 @@ namespace Coast.Controls
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
+            SetRangeBySizeChanged();
+            CheckRange();
             SetCS();
             Plot();
         }
@@ -281,13 +283,13 @@ namespace Coast.Controls
         
         private void ApplyDisireRange()
         {
-            SetRange();
+            SetRangeByDisireValue();
             CheckRange();
             SetCS();
             Plot();
         }
 
-        private void SetRange()
+        private void SetRangeByDisireValue()
         {
             if (_graph == null) return;
 
@@ -349,7 +351,58 @@ namespace Coast.Controls
 
             }
         }
-        
+
+        private void SetRangeBySizeChanged()
+        {
+            if (_scaleMode == CS2dScaleMode.Default || _scaleMode == CS2dScaleMode.XYSameScale)
+            {
+                if (_graph.ActualWidth <= 0) return;
+                if (_graph.ActualHeight <= 0) return;
+
+                if ((_xUpperRange - _xLowerRange) / _graph.ActualWidth > (_yUpperRange - _yLowerRange) / _graph.ActualHeight)
+                {
+                    //_xLowerRange = _disireXLowerRange;
+                    //_xUpperRange = _disireXUpperRange;
+                    //_xTicksCount = _disireXTicksCount;
+
+                    double scale = (_xUpperRange - _xLowerRange) / _graph.ActualWidth;
+                    double space = (_xUpperRange - _xLowerRange) / _disireXTicksCount;
+
+                    //RangeLower Extend
+                    //_yLowerRange = _yLowerRange;
+                    _yUpperRange = _yLowerRange + scale * _graph.ActualHeight;
+                    _yTicksCount = ((_yUpperRange - _yLowerRange) / space);
+
+                }
+                else
+                {
+                    //_yLowerRange = _disireYLowerRange;
+                    //_yUpperRange = _disireYUpperRange;
+                    //_yTicksCount = _disireYTicksCount;
+
+                    double scale = (_yUpperRange - _yLowerRange) / _graph.ActualHeight;
+                    double space = (_yUpperRange - _yLowerRange) / _disireYTicksCount;
+
+                    //RangeLower Extend
+                    //_xLowerRange = _xLowerRange;
+                    _xUpperRange = _xLowerRange + scale * _graph.ActualWidth;
+                    _xTicksCount = ((_xUpperRange - _xLowerRange) / space);
+                    
+                }
+            }
+        }
+
+        //Check Range Conditions:
+        //	  Apply DisireRange to runtime Range
+        //        Loading apply from default value
+        //        Range Property Set
+        //    Mouse Zooming/Dragging
+        //        Mouse Wheel Event
+        //        Command AutoFit
+        //        Command Restore
+        //        Command ZoomIn
+        //        Command ZoomOut
+        //    SizeChaged update Range
         private bool CheckRange()
         {
             bool t = true;

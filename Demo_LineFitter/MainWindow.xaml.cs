@@ -90,6 +90,7 @@ namespace Demo_LineFitter
                 if (xMax < p.X) xMax = p.X;
             }
 
+
             CS2dLine line = new CS2dLine()
             {
                 StartPoint = new Point(xMin, Line.GetY(xMin)),
@@ -97,6 +98,8 @@ namespace Demo_LineFitter
                 Stroke = new SolidColorBrush(Colors.Black),
                 Thickness = 1
             };
+
+            line.Value = _lineFitter.Line;
 
             CS2dElements.Add(line);
             _canvas.Elements = CS2dElements;

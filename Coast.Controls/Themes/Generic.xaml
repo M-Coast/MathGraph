@@ -5,6 +5,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Coast.Controls;component/CS2d/_Style.xaml"/>
+        <ResourceDictionary Source="Coast.Controls;component/TitledValueControl/_Style.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 
