@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Expression\Lex\Lex.cs" />
+    <Compile Include="Expression\Common\Types.cs" />
+    <Compile Include="Extensions\DoubleExtension.cs" />
+    <Compile Include="Geometry\Ellipse3d.cs" />
     <Compile Include="Measurement\Distance.cs" />
     <Compile Include="Fitters\CircleFitter\CircleFitter.cs" />
     <Compile Include="Fitters\CircleFitter\CircleFitterErrorCode.cs" />
@@ -70,10 +74,13 @@
     <Compile Include="Vector\Vector4.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Expression\Syntax\" />
+    <Folder Include="Expression\VM\" />
     <Folder Include="Primitives\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documents\Note_LinearEquations.txt" />
+    <Content Include="Expression\_Note1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

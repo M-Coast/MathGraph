@@ -143,18 +143,20 @@ namespace Demo_Fitters_2d
             }
 
 
-            //CS2dEllipse Ellipse = new CS2dEllipse()
-            //{
-            //    CenterX = Ellipse.CenterX,
-            //    CenterY = Ellipse.CenterY,
-            //    Radius = Ellipse.R,
-            //    Stroke = new SolidColorBrush(Colors.Black),
-            //    Thickness = 1
-            //};
+            CS2dEllipse ellipse = new CS2dEllipse()
+            {
+                CenterX = Ellipse.CenterX,
+                CenterY = Ellipse.CenterY,
+                RadiusA = Ellipse.RadiusA,
+                RadiusB = Ellipse.RadiusB,
+                Rotation = Ellipse.Rotation,
+                Stroke = new SolidColorBrush(Colors.Black),
+                Thickness = 1
+            };
 
-            //Ellipse.Value = _fitter.Ellipse;
+            ellipse.Value = _fitter.Ellipse;
 
-            //_cs2dElements.Add(Ellipse);
+            _cs2dElements.Add(ellipse);
             _cs2d.Elements = _cs2dElements;
         }
 
@@ -178,13 +180,51 @@ namespace Demo_Fitters_2d
         }
 
 
+
+        private void CreatePoints2(
+            double centerX, double centerY, double radiusA, double radiusB, double rotation,
+            double startAngle, double endAngle,
+            int pointsCount, double randomRangeX, double randomRangeY)
+        {
+            double theta = (rotation / 180.0) * System.Math.PI;
+            double space = System.Math.PI * 2.0 / pointsCount;
+            Vector2 shiftVector = new Vector2(centerX, centerY);
+            Vector2 point = new Vector2();
+
+            TestPoints.Clear();
+
+            for (int i = 0; i < pointsCount; i++)
+            {
+                //参数方程
+                //  x = a*cos(t)
+                //  y = b*cos(t)
+                point.X = Math.Cos(space * i) * radiusA;
+                point.Y = Math.Sin(space * i) * radiusB;
+
+                if (randomRangeX > 0) point.X = point.X + NextRangedRandomNumber(randomRangeX);
+                if (randomRangeY > 0) point.Y = point.Y + NextRangedRandomNumber(randomRangeY);
+
+                //旋转th
+                point.Rotate(theta);
+
+                //平移
+                point.Add(shiftVector);
+
+                TestPoints.Add(point);
+
+            }
+        }
+
+
+        //CreatePoints 写成同一个函数
+
         private void CreatePoints1()
         {
             double cx = 50;
             double cy = 50;
             double ra = 80;
             double rb = 40;
-            double th = 45;
+            double th = 60;
 
 
             int count = 200;
@@ -223,6 +263,49 @@ namespace Demo_Fitters_2d
 
         private void CreatePoints2()
         {
+            double cx = 200;
+            double cy = 50;
+            double ra = 200;
+            double rb = 50;
+            double th = 120;
+
+
+            int count = 200;
+            double theta = (th / 180.0) * System.Math.PI;
+            double space = System.Math.PI * 2.0 / count;
+            Vector2 shiftVector = new Vector2(cx, cy);
+
+            TestPoints.Clear();
+
+            Vector2[] points = new Vector2[count];
+
+
+            for (int i = 0; i < count; i++)
+            {
+                //参数方程
+                //  x = a*cos(t)
+                //  y = b*cos(t)
+                points[i].X = Math.Cos(space * i) * ra + NextRangedRandomNumber(ra / 50);
+                points[i].Y = Math.Sin(space * i) * rb + +NextRangedRandomNumber(ra / 50);
+
+                //旋转th
+                points[i].Rotate(theta);
+
+                //平移
+                points[i].Add(shiftVector);
+
+            }
+
+
+            for (int i = 0; i < count; i++)
+            {
+                TestPoints.Add(points[i]);
+            }
+
+        }
+
+        private void CreatePoints3()
+        {
             double cx = 0;
             double cy = 0;
             double ra = 20;
@@ -243,8 +326,8 @@ namespace Demo_Fitters_2d
                 TestPoints.Add(new Vector2(x, y));
             }
         }
-
-        private void CreatePoints3()
+        
+        private void CreatePoints4()
         {
             double a = 100;
             double b = 200;
@@ -266,29 +349,6 @@ namespace Demo_Fitters_2d
                 double y = b + Math.Sin(startAngle + space * i) * R + NextRangedRandomNumber(R / 50);
                 TestPoints.Add(new Vector2(x, y));
             }
-        }
-
-        private void CreatePoints4()
-        {
-            double a = 10;
-            double b = 20;
-            double R = 20;
-
-            double space = 1.0;
-
-            int count = 3;
-
-            space = System.Math.PI * 2.0 / count;
-
-            TestPoints.Clear();
-
-            for (int i = 0; i < count; i++)
-            {
-                double x = a + Math.Cos(space * i) * R + NextRangedRandomNumber(1);
-                double y = b + Math.Sin(space * i) * R + NextRangedRandomNumber(1);
-                TestPoints.Add(new Vector2(x, y));
-            }
-
         }
 
 

@@ -1,0 +1,16 @@
+﻿
+ADD	+
+SUB	-
+MUL	*
+DIV	/
+EXP	^
+
+
+
+Compiler:
+	SymbolTable
+	Lexer(to obtain tokens)
+	ExpressionTree
+	IL
+	Assembler
+

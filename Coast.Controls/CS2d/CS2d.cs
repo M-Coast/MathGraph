@@ -77,6 +77,10 @@ namespace Coast.Controls
                 {
                     DrawCircle(drawingContext, element as CS2dCircle);
                 }
+                else if(element is CS2dEllipse)
+                {
+                    DrawEllipse(drawingContext, element as CS2dEllipse);
+                }
             }
         }
 
@@ -193,6 +197,51 @@ namespace Coast.Controls
                 System.Math.Abs(TransformY(element.Radius) - TransformY(0)));
         }
 
+        private void DrawEllipse(DrawingContext drawingContext, CS2dEllipse element)
+        {
+            Pen stroke = element.Stroke == null ? null : new Pen(element.Stroke, element.Thickness);
+
+            int count = 200;
+            double space = System.Math.PI * 2.0 / count;
+            Coast.Math.Vector2 shiftVector = new Coast.Math.Vector2(element.CenterX, element.CenterY);
+            Coast.Math.Vector2 v = new Math.Vector2();
+
+            PathGeometry pathGeometry = new PathGeometry();
+            PathFigure pathFeature = new PathFigure();
+            pathFeature.IsClosed = true;
+            pathGeometry.Figures.Add(pathFeature);
+
+            for (int i = 0; i < count; i++)
+            {
+                //参数方程
+                //  x = a*cos(t)
+                //  y = b*cos(t)
+                v.X = System.Math.Cos(space * i) * element.RadiusA;
+                v.Y = System.Math.Sin(space * i) * element.RadiusB;
+
+                //旋转th
+                v.Rotate(element.Rotation / 180 * System.Math.PI);
+
+                //平移
+                v.Add(shiftVector);
+
+                Point p = new Point(v.X, v.Y);
+
+                if (i == 0)
+                {
+                    pathFeature.StartPoint = TransformXY(p);
+                }
+                else
+                {
+                    LineSegment segment = new LineSegment() { Point = TransformXY(p) };
+                    pathFeature.Segments.Add(segment);
+                }
+
+            }
+
+            drawingContext.DrawGeometry(null, stroke, pathGeometry);
+
+        }
 
 
 

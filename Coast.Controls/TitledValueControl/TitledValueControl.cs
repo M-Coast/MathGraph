@@ -136,6 +136,19 @@ namespace Coast.Controls
         public static readonly DependencyProperty ValueBackgroundProperty =
             DependencyProperty.Register("ValueBackground", typeof(Brush), typeof(TitledValueControl), new PropertyMetadata());
 
+
+
+
+        public bool IsReadOnly
+        {
+            get { return (bool)GetValue(IsReadOnlyProperty); }
+            set { SetValue(IsReadOnlyProperty, value); }
+        }
         
+        public static readonly DependencyProperty IsReadOnlyProperty =
+            DependencyProperty.Register("IsReadOnly", typeof(bool), typeof(TitledValueControl), new PropertyMetadata(false));
+
+
+
     }
 }

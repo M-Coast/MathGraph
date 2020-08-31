@@ -17,14 +17,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Coast.Math
+namespace Coast.Controls
 {
-    public enum EllipseFitterErrorCode
+    public static class DoubleExtension
     {
-        NoError,
-        PointsCollectionIsNull,
-        PointsCountLessThan3,
-        SolveEquationsError,
-        InvalidCoefficients,
+        public static double WeakEqualityLimit { get; set; } = 1E-8;
+        public static bool WeakEquals(this double self, double value)
+        {
+            return System.Math.Abs(self - value) <= WeakEqualityLimit ? true : false;
+        }
     }
 }

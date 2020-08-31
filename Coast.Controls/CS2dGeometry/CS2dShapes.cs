@@ -101,9 +101,13 @@ namespace Coast.Controls
 
     public class CS2dEllipse : CS2dShape
     {
-        public Point Center { set; get; }
-        public double Radius1 { set; get; }
-        public double Radius2 { set; get; }
+        public double CenterX { set; get; }
+        public double CenterY { set; get; }
+        public Point Center { get { return new Point(CenterX, CenterY); } }
+        public double RadiusA { set; get; } //Long
+        public double RadiusB { set; get; } //Short
+        public double Rotation { set; get; } //Short
+        public Ellipse2d Value { set; get; }
     }
 
     public class CS2dEllipseArc : CS2dEllipse

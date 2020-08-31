@@ -44,13 +44,13 @@ namespace Coast.Math
         }
 
         //Coefficients
-        //Ax^2 + 2Bxy + Cy^2  + Dx + Ey +F =0
+        //Ax^2 + 2Bxy + Cy^2  + Dx + Ey + F = 0
         public double A { get { return _A; } }
         public double B { get { return _B; } }
         public double C { get { return _C; } }
         public double D { get { return _D; } }
         public double E { get { return _E; } }
-        //public double F { get { return _F; } }
+        public double F { get { return _F; } }
 
         public bool Errored { get; private set; } = false;
         public EllipseFitterErrorCode ErrorCode { get; private set; } = EllipseFitterErrorCode.NoError;
@@ -61,11 +61,11 @@ namespace Coast.Math
         private double _C = 0;
         private double _D = 0;
         private double _E = 0;
-        //private double _F = 0;
+        private double _F = 0;
 
         private List<Vector2> _points = null;
 
-        public Ellipse2d Ellipse { get { return new Ellipse2d() { A = _A, B = _B, C = _C, D = _D, E = _E }; } }
+        public Ellipse2d Ellipse { get { return Errored ? new Ellipse2d() : new Ellipse2d(_A, _B, _C, _D, _E, _F); } }
 
         public EllipseFitter()
         {
@@ -115,19 +115,13 @@ namespace Coast.Math
             _C = LE.Result[2];
             _D = LE.Result[3];
             _E = LE.Result[4];
+            _F = 1;
 
-            //_a = -_D / 2.0;
-            //_b = -_E / 2.0;
-
-            //double n = _a * _a + _b * _b - _F;
-
-            //if (n < 0)
-            //{
-            //    SetError(EllipseFitterErrorCode.RadiusError);
-            //    return false;
-            //}
-
-            //_R = System.Math.Sqrt(n);
+            if(!Ellipse2d.ValidateGeneralEquationCoefficients(_A,_B,_C,_D,_E,_F))
+            {
+                SetError(EllipseFitterErrorCode.InvalidCoefficients);
+                return false;
+            }
 
             return true;
 

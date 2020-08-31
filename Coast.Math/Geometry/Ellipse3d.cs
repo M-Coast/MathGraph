@@ -17,14 +17,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Coast.Controls
+namespace Coast.Math
 {
-    public static class DoubleExtensions
+    public class Ellipse3d
     {
-        public const double WeakEqualityLimit = 1E-8;
-        public static bool WeakEquals(this double self, double value)
-        {
-            return System.Math.Abs(self - value) <= WeakEqualityLimit ? true : false;
-        }
+
     }
 }

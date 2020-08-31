@@ -53,6 +53,7 @@
                                         <ColumnDefinition Width="1"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <TextBox Grid.Column="1" 
+                                             IsReadOnly="{TemplateBinding IsReadOnly}"
                                              TextAlignment="{TemplateBinding ValueTextAlignment}" VerticalContentAlignment="Center" 
                                              VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                                              Background="Transparent" Foreground="{TemplateBinding Foreground}"

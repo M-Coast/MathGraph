@@ -35,7 +35,7 @@ namespace Coast.Math
 
         public double CenterX { get { return cx; } }
         public double CenterY { get { return cy; } }
-        public double Radius { get { return cy; } }
+        public double Radius { get { return r; } }
 
         public Circle2d() { }
 
