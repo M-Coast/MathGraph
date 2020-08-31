@@ -1,6 +1,6 @@
 # MathGraph
 
-Graph    : To present mathematics expressions in graphics
+Graph    : To present mathematics expressions in graphics.
 Solution : To solve LinearEquations, LeastSquarePlaneFitting, FlatnessCalculation, etc.
 
 
