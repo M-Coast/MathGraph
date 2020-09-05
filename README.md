@@ -1,7 +1,11 @@
 # MathGraph
 
-Graph    : To present mathematics expressions in graphics.
-Solution : To solve LinearEquations, LeastSquarePlaneFitting, FlatnessCalculation, etc.
+Expression + Graph + Solution
+
+
+Expression: To parse and evaluate mathematics expressions, etc.
+Graph     : To plot mathematics expressions functions geometries, etc.
+Solution  : To solve LinearEquations, LeastSquarePlaneFitting, FlatnessCalculation, etc.
 
 
 
