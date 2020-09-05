@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*****************************************************************************************
+
+    MathGraph
+    
+    Copyright (C)  Coast
+
+
+    AUTHOR      :  Coast   
+    DATE        :  2020/9/3
+    DESCRIPTION :  
+
+ *****************************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -208,9 +221,37 @@ namespace Coast.Math.Expression
             expr = primary;
         }
 
-        //private void ParseConstNumberWithSign(ref Expression expr, int sign)
-        //{
-        //}
+        
+        private void ParseExponentialExpression(ref Expression expr)
+        {
+            Expression __base = null;
+
+            ParsePostfixExpression(ref __base);
+
+            if (_errored) return;
+            if (__base == null) return;
+
+            Token token = lex.PreviewNextToken();
+
+            while (Lex.TokenIsOperator(token, OperatorCode.Xor))
+            {
+                lex.ConsumeAToken();
+                Expression __power = null;
+                ParsePostfixExpression(ref __power);
+
+                if (__power == null)
+                {
+                    return;
+                }
+
+                Expression exprN = new ExponentialExpression(__base, __power);
+
+                __base = exprN;
+                exprN = null; __power = null;
+                token = lex.PreviewNextToken();
+            }
+            expr = __base;
+        }
 
         private void ParseUnaryExpression(ref Expression expr)
         {

@@ -19,3 +19,4 @@ C:\Users\MA\Documents\GitHub\MathGraph\Coast.Math\bin\Debug\Coast.Math.dll
 C:\Users\MA\Documents\GitHub\MathGraph\Coast.Math\bin\Debug\Coast.Math.pdb
 C:\Users\MA\Documents\GitHub\MathGraph\Coast.Math\obj\Debug\Coast.Math.dll
 C:\Users\MA\Documents\GitHub\MathGraph\Coast.Math\obj\Debug\Coast.Math.pdb
+C:\Users\MA\Documents\GitHub\MathGraph\Coast.Math\obj\Debug\Coast.Math.csprojResolveAssemblyReference.cache
