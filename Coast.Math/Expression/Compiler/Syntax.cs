@@ -33,8 +33,9 @@ namespace Coast.Math.Expression
             
             lex = _lex;
 
-            ParseExpressionGroup();
+            Reset();
 
+            ParseExpressionGroup();
         }
 
         public void Parse(string soureCode)
@@ -44,6 +45,16 @@ namespace Coast.Math.Expression
         }
 
 
+        public override void Reset()
+        {
+            if (_expressions != null)
+            {
+                if (_expressions.SymbolTable != null) _expressions.SymbolTable.Clear();
+                if (_expressions.Expressions != null) _expressions.Expressions.Clear();
+                _expressions = null;
+            }
+            base.Reset();
+        }
 
         private void ParsePrimaryExpression(ref Expression expr)
         {
@@ -210,7 +221,9 @@ namespace Coast.Math.Expression
                 lex.ConsumeAToken();
                 if (lex.NextTokenIs(TokenType.Constant))
                 {
-                    Constant c = new Constant((double)token.Value * -1);
+                    token = lex.Parse();
+                    Constant o = (Constant)token.Value;
+                    Constant c = new Constant(o.Value * -1);
                     expr = new ConstantExpression(c);
                 }
                 else
@@ -226,7 +239,9 @@ namespace Coast.Math.Expression
                 lex.ConsumeAToken();
                 if (lex.NextTokenIs(TokenType.Constant))
                 {
-                    Constant c = new Constant((double)token.Value * +1);
+                    token = lex.Parse();
+                    Constant o = (Constant)token.Value;
+                    Constant c = new Constant(o.Value * +1);
                     expr = new ConstantExpression(c);
                 }
                 else

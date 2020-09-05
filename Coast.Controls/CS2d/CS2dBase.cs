@@ -321,14 +321,14 @@ namespace Coast.Controls
                     double space = (_xUpperRange - _xLowerRange) / _disireXTicksCount;
 
                     //RangeLower Extend
-                    _yLowerRange = _disireYLowerRange;
-                    _yUpperRange = _disireYLowerRange + scale * _graph.ActualHeight;
-                    _yTicksCount = ((_yUpperRange - _yLowerRange) / space);
+                    //_yLowerRange = _disireYLowerRange;
+                    //_yUpperRange = _disireYLowerRange + scale * _graph.ActualHeight;
+                    //_yTicksCount = ((_yUpperRange - _yLowerRange) / space);
 
                     //RangeCenter Extend
-                    //_yLowerRange = (_disireYLowerRange + _disireYUpperRange) / 2 - scale * _graph.ActualHeight / 2;
-                    //_yUpperRange = (_disireYLowerRange + _disireYUpperRange) / 2 + scale * _graph.ActualHeight / 2;
-                    //_yTicksCount = ((_yUpperRange - _yLowerRange) / space);
+                    _yLowerRange = (_disireYLowerRange + _disireYUpperRange) / 2 - scale * _graph.ActualHeight / 2;
+                    _yUpperRange = _yLowerRange + scale * _graph.ActualHeight;
+                    _yTicksCount = ((_yUpperRange - _yLowerRange) / space);
                 }
                 else
                 {
@@ -340,14 +340,14 @@ namespace Coast.Controls
                     double space = (_yUpperRange - _yLowerRange) / _disireYTicksCount;
 
                     //RangeLower Extend
-                    _xLowerRange = _disireXLowerRange;
-                    _xUpperRange = _disireXLowerRange + scale * _graph.ActualWidth;
-                    _xTicksCount = ((_xUpperRange - _xLowerRange) / space);
+                    //_xLowerRange = _disireXLowerRange;
+                    //_xUpperRange = _disireXLowerRange + scale * _graph.ActualWidth;
+                    //_xTicksCount = ((_xUpperRange - _xLowerRange) / space);
 
                     //RangeCenter Extend
-                    //_xLowerRange = (_disireXLowerRange + _disireXUpperRange) / 2 - scale * _graph.ActualWidth / 2;
-                    //_xUpperRange = (_disireXLowerRange + _disireXUpperRange) / 2 + scale * _graph.ActualWidth / 2;
-                    //_xTicksCount = ((_xUpperRange - _xLowerRange) / space);
+                    _xLowerRange = (_disireXLowerRange + _disireXUpperRange) / 2 - scale * _graph.ActualWidth / 2;
+                    _xUpperRange = _xLowerRange + scale * _graph.ActualWidth;
+                    _xTicksCount = ((_xUpperRange - _xLowerRange) / space);
                 }
             }
             else if (_scaleMode == CS2dScaleMode.Self)

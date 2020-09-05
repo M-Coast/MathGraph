@@ -400,8 +400,8 @@ namespace Coast.Math.Expression
             SymbolTable = new Dictionary<string, Symbol>();
         }
 
-        public string Name;
-        public string Version;
+        public string Name { get; set; }
+        public string Version { get; set; }
 
     }
 

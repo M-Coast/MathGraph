@@ -27,6 +27,7 @@ namespace Coast.Math.Expression
 
         private void Solve(Expression expr)
         {
+            if (expr == null) return;
             string s = string.Empty;
             switch (expr.Type)
             {

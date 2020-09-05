@@ -63,6 +63,30 @@ namespace Demo_ExpressionGraph
 
 
 
+
+        public bool Errored
+        {
+            get { return (bool)GetValue(ErroredProperty); }
+            set { SetValue(ErroredProperty, value); }
+        }
+        
+        public static readonly DependencyProperty ErroredProperty =
+            DependencyProperty.Register("Errored", typeof(bool), typeof(MainWindow), new PropertyMetadata(false));
+
+
+
+        public string StatusText
+        {
+            get { return (string)GetValue(StatusTextProperty); }
+            set { SetValue(StatusTextProperty, value); }
+        }
+
+        public static readonly DependencyProperty StatusTextProperty =
+            DependencyProperty.Register("StatusText", typeof(string), typeof(MainWindow), new PropertyMetadata("No Error"));
+
+
+
+
         public double XRangeLow
         {
             get { return (double)GetValue(XRangeLowProperty); }
@@ -94,6 +118,7 @@ namespace Demo_ExpressionGraph
 
         public static readonly DependencyProperty SampleCountProperty =
             DependencyProperty.Register("SampleCount", typeof(int), typeof(MainWindow), new PropertyMetadata(1000));
+
 
 
 
@@ -140,11 +165,26 @@ namespace Demo_ExpressionGraph
             Solve();
         }
 
-        
+
+        public Syntax Parser { get; private set; } = new Syntax();
+
         private void Solve()
         {
-            Syntax syntax = new Syntax();
-            syntax.Parse(ExpressionText);
+            //Syntax syntax = new Syntax();
+
+            StatusText = "No Error";
+            textBlockStatus.Background = new SolidColorBrush(Colors.Transparent);
+            Errored = false;
+
+            Parser.Parse(ExpressionText);
+
+            if (Parser.Errored)
+            {
+                StatusText = "Parser Errored";
+                textBlockStatus.Background = new SolidColorBrush(Colors.Red);
+                Errored = true;
+                return;
+            }
 
             Dictionary<string, double> variableTable = new Dictionary<string, double>();
 
@@ -159,18 +199,30 @@ namespace Demo_ExpressionGraph
 
             Points.Clear();
 
-            for (int i = 0; i < SampleCount; i++)
+            try
             {
-                x = XRangeLow + space * i;
-                variableTable["x"] = x;
-                ev.Solve(syntax.Expressions, variableTable);
-                y = variableTable["y"];
-                Points.Add(new Vector2(x, y));
+
+                for (int i = 0; i < SampleCount; i++)
+                {
+                    x = XRangeLow + space * i;
+                    variableTable["x"] = x;
+                    ev.Solve(Parser.Expressions, variableTable);
+                    y = variableTable["y"];
+                    Points.Add(new Vector2(x, y));
+                }
+            }
+            catch (Exception e)
+            {
+                StatusText = "Evaluator Errored";
+                textBlockStatus.Background = new SolidColorBrush(Colors.Red);
+                Errored = true;
+                return;
             }
 
             //SetPoints();
 
             SetGraphPath();
+
         }
 
         private void SetPoints()
