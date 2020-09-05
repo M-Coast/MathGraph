@@ -110,6 +110,16 @@ namespace Coast.Controls
         public Ellipse2d Value { set; get; }
     }
 
+    public class CS2dPath : CS2dShape
+    {
+        public List<Vector2> Segments { get; set; }
+    }
+
+    public class CS2dPathCollection: List<CS2dPath>
+    {
+
+    }
+
     public class CS2dEllipseArc : CS2dEllipse
     {
         public double StartAngle { set; get; }

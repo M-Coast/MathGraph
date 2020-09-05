@@ -181,9 +181,9 @@ namespace Demo_Fitters_2d
 
 
 
-        private void CreatePoints2(
+        private void CreatePoints(
             double centerX, double centerY, double radiusA, double radiusB, double rotation,
-            double startAngle, double endAngle,
+            double startAngle, double swapAngle, int swapDirection,
             int pointsCount, double randomRangeX, double randomRangeY)
         {
             double theta = (rotation / 180.0) * System.Math.PI;
@@ -201,13 +201,14 @@ namespace Demo_Fitters_2d
                 point.X = Math.Cos(space * i) * radiusA;
                 point.Y = Math.Sin(space * i) * radiusB;
 
+                //加入随机数
                 if (randomRangeX > 0) point.X = point.X + NextRangedRandomNumber(randomRangeX);
                 if (randomRangeY > 0) point.Y = point.Y + NextRangedRandomNumber(randomRangeY);
 
-                //旋转th
+                //旋转 th
                 point.Rotate(theta);
 
-                //平移
+                //平移 cx,cy
                 point.Add(shiftVector);
 
                 TestPoints.Add(point);

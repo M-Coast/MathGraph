@@ -81,6 +81,10 @@ namespace Coast.Controls
                 {
                     DrawEllipse(drawingContext, element as CS2dEllipse);
                 }
+                else if(element is CS2dPath)
+                {
+                    DrawPath(drawingContext, element as CS2dPath);
+                }
             }
         }
 
@@ -94,6 +98,7 @@ namespace Coast.Controls
             double xMax = double.MinValue;
             double yMin = double.MaxValue;
             double yMax = double.MinValue;
+
             foreach (CS2dShape element in _elements)
             {
                 if (element is CS2dPoint)
@@ -103,6 +108,16 @@ namespace Coast.Controls
                     if (xMax < t.X) xMax = t.X;
                     if (yMin > t.Y) yMin = t.Y;
                     if (yMax < t.Y) yMax = t.Y;
+                }
+                else if (element is CS2dPath)
+                {
+                    foreach(Coast.Math.Vector2 v in ((CS2dPath)element).Segments)
+                    {
+                        if (xMin > v.X) xMin = v.X;
+                        if (xMax < v.X) xMax = v.X;
+                        if (yMin > v.Y) yMin = v.Y;
+                        if (yMax < v.Y) yMax = v.Y;
+                    }
                 }
                 else if (element is CS2dLine)
                 {
@@ -237,6 +252,35 @@ namespace Coast.Controls
                     pathFeature.Segments.Add(segment);
                 }
 
+            }
+
+            drawingContext.DrawGeometry(null, stroke, pathGeometry);
+
+        }
+
+
+
+        private void DrawPath(DrawingContext drawingContext, CS2dPath element)
+        {
+            Pen stroke = element.Stroke == null ? null : new Pen(element.Stroke, element.Thickness);
+
+            PathGeometry pathGeometry = new PathGeometry();
+            PathFigure pathFeature = new PathFigure();
+            pathGeometry.Figures.Add(pathFeature);
+
+            for (int i = 0; i < element.Segments.Count; i++)
+            {
+                Point p = new Point(element.Segments[i].X, element.Segments[i].Y);
+
+                if (i == 0)
+                {
+                    pathFeature.StartPoint = TransformXY(p);
+                }
+                else
+                {
+                    LineSegment segment = new LineSegment() { Point = TransformXY(p) };
+                    pathFeature.Segments.Add(segment);
+                }
             }
 
             drawingContext.DrawGeometry(null, stroke, pathGeometry);

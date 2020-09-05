@@ -40,8 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Expression\Lex\Lex.cs" />
-    <Compile Include="Expression\Common\Types.cs" />
+    <Compile Include="Expression\Lang\Keywords.cs" />
+    <Compile Include="Expression\Lang\Statics.cs" />
+    <Compile Include="Expression\Lang\Token.cs" />
+    <Compile Include="Expression\Lang\Symbol.cs" />
+    <Compile Include="Expression\Lang\Operators.cs" />
+    <Compile Include="Expression\Compiler\Syntax.cs" />
+    <Compile Include="Expression\Compiler\Lex.cs" />
+    <Compile Include="Expression\Lang\Expressions.cs" />
+    <Compile Include="Expression\Common\ModuleBase.cs" />
+    <Compile Include="Expression\Evaluator\Evaluator.cs" />
     <Compile Include="Extensions\DoubleExtension.cs" />
     <Compile Include="Geometry\Ellipse3d.cs" />
     <Compile Include="Measurement\Distance.cs" />
@@ -74,8 +82,6 @@
     <Compile Include="Vector\Vector4.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Expression\Syntax\" />
-    <Folder Include="Expression\VM\" />
     <Folder Include="Primitives\" />
   </ItemGroup>
   <ItemGroup>

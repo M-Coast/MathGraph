@@ -1,0 +1,166 @@
+﻿<Window x:Class="Demo_ExpressionGraph.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo_ExpressionGraph"
+        xmlns:CoastControls ="clr-namespace:Coast.Controls;assembly=Coast.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1200">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border  Grid.Column="0" BorderBrush="Blue" BorderThickness="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="2" BorderBrush="DarkGray" BorderThickness="1" Margin="3,15,3,3" Background="#FFCCCCCC">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0">
+                                    <TextBlock Text="Points" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                                </Border>
+ 
+                            </Grid>
+
+                            <DataGrid Grid.Row="1" x:Name="dataGridInputData" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible"
+                                      ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=Points}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="X" Width="*" Binding="{Binding Path=X,StringFormat=F3}">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style>
+                                                <Setter Property="FrameworkElement.HorizontalAlignment" Value="Right"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="Y" Width="*" Binding="{Binding Path=Y,StringFormat=F3}">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style>
+                                                <Setter Property="FrameworkElement.HorizontalAlignment" Value="Right"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="0" BorderBrush="DarkGray" BorderThickness="1" Margin="3" Background="#FFCCCCCC">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0">
+                                    <TextBlock Text="Expression" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                                </Border>
+                            </Grid>
+
+                            <Grid Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBox Grid.Row="0" Height="100"
+                                         Foreground="Blue"
+                                         FontWeight="DemiBold"
+                                         AcceptsReturn="True"
+                                         AcceptsTab="True"
+                                         Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=ExpressionText}"></TextBox>
+                                <StackPanel Grid.Row="1">
+                                    <CoastControls:TitledValueControl 
+                                        Title="Range.X.Low" TitleWidth="100" 
+                                        Foreground="Blue"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=XRangeLow,Mode=TwoWay}"
+                                        BorderThickness="1,1,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Range.X.High" TitleWidth="100" 
+                                        Foreground="Blue"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=XRangeHigh,Mode=TwoWay}"
+                                        BorderThickness="1,1,1,1"
+                                        Height="20"/>
+                                    <CoastControls:TitledValueControl 
+                                        Title="Samples" TitleWidth="100" 
+                                        Foreground="Blue"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}},Path=SampleCount,Mode=TwoWay}"
+                                        BorderThickness="1,1,1,1"
+                                        Height="20"/>
+                                </StackPanel>
+                            </Grid>
+                            
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1">
+                        <Button Grid.Column="0" Content="Graph" Margin="3" Click="Button_Click"></Button>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Column="1" Margin="3">
+                <Border BorderBrush="Gray" BorderThickness="1">
+                    <CoastControls:CS2d x:Name="_cs2d"></CoastControls:CS2d>
+                </Border>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Border Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0">
+                        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Text="Status" Margin="3,0,3,0"></TextBlock>
+                    </Border>
+                    <Border Grid.Column="1">
+                        <!--<TextBlock x:Name="textBlockStatus" TextAlignment="Center" VerticalAlignment="Center"
+                               Text= "{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:LineFitterControl}},Path=ErrorCode,Mode=OneWay}">
+                        </TextBlock>-->
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+
+    </Grid>
+    
+</Window>
