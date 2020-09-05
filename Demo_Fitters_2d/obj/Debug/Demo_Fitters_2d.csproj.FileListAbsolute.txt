@@ -22,3 +22,4 @@ C:\Users\MA\Documents\GitHub\MathGraph\Demo_Fitters_2d\obj\Debug\FitterControls\
 C:\Users\MA\Documents\GitHub\MathGraph\Demo_Fitters_2d\obj\Debug\FitterControls\CircleFitterControl.baml
 C:\Users\MA\Documents\GitHub\MathGraph\Demo_Fitters_2d\obj\Debug\FitterControls\EllipseFitterControl.g.cs
 C:\Users\MA\Documents\GitHub\MathGraph\Demo_Fitters_2d\obj\Debug\FitterControls\EllipseFitterControl.baml
+C:\Users\MA\Documents\GitHub\MathGraph\Demo_Fitters_2d\obj\Debug\Demo_Fitters_2d.csprojResolveAssemblyReference.cache
