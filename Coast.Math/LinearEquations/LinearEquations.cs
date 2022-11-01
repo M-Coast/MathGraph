@@ -239,9 +239,9 @@ namespace Coast.Math
             //选取绝对值最大的行
             for (int j = rowStart; j < _matrix.Rows; j++)
             {
-                if (max < System.Math.Abs(_matrix[rowStart, column]))
+                if (max < System.Math.Abs(_matrix[j, column]))
                 {
-                    max = _matrix[rowStart, column];
+                    max = _matrix[j, column];
                     rowFound = j;
                 }
             }

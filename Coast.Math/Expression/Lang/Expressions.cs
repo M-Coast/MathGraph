@@ -36,7 +36,7 @@ namespace Coast.Math.Expression
 
         //PostfixExpression,
 
-        FuncCallExpression,
+        CallExpression,
         ExponentialExpression,
 
         //UnaryExpression,
@@ -192,17 +192,17 @@ namespace Coast.Math.Expression
     }
 
     [Serializable]
-    public class FuncCallExpression : PostfixExpression
+    public class CallExpression : PostfixExpression
     {
         public Function Function { get; set; }
         public List<Expression> Arguments { get; set; }
 
-        public FuncCallExpression() : base(ExpressionType.FuncCallExpression)
+        public CallExpression() : base(ExpressionType.CallExpression)
         {
 
         }
 
-        public FuncCallExpression(Function function, List<Expression> arguments) : base(ExpressionType.FuncCallExpression)
+        public CallExpression(Function function, List<Expression> arguments) : base(ExpressionType.CallExpression)
         {
             Function = function;
             Arguments = arguments;

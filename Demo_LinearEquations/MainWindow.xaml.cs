@@ -42,9 +42,7 @@ namespace Demo_LinearEquations
         {
             comboTestData.SelectedIndex = 0;
         }
-
-        private double[,] currentData;
-
+        
         private void test()
         {
             double[,] t = new double[,]
@@ -85,22 +83,22 @@ namespace Demo_LinearEquations
             if (c.SelectedIndex == 0)
             {
                 dataGridInputData.ItemsSource = ConvertArray2DataTable(testData1).DefaultView;
-                currentData = testData1;
+                //currentData = testData1;
             }
             if (c.SelectedIndex == 1)
             {
                 dataGridInputData.ItemsSource = ConvertArray2DataTable(testData2).DefaultView;
-                currentData = testData2;
+                //currentData = testData2;
             }
             if (c.SelectedIndex == 2)
             {
                 dataGridInputData.ItemsSource = ConvertArray2DataTable(testData3).DefaultView;
-                currentData = testData3;
+                //currentData = testData3;
             }
             if (c.SelectedIndex == 3)
             {
                 dataGridInputData.ItemsSource = ConvertArray2DataTable(testData4).DefaultView;
-                currentData = testData4;
+                //currentData = testData4;
             }
         }
 
@@ -108,7 +106,11 @@ namespace Demo_LinearEquations
         {
             LinearEquations LE = new LinearEquations();
 
-            LE.MatrixDataSource = currentData;
+            DataView dv = dataGridInputData.ItemsSource as DataView;
+
+            double[,] data = ConvertDataTable2Array(dv.Table);
+
+            LE.MatrixDataSource = data;
 
             LE.Solve();
 
@@ -158,7 +160,7 @@ namespace Demo_LinearEquations
                 for (int i = 0; i < c; i++)
                 {
                     //dr[i] = data[j, i];
-                    dr[i] = data[j, i].ToString("F2");
+                    dr[i] = data[j, i].ToString("F3");
                 }
                 
                 dt.Rows.Add(dr);
@@ -167,13 +169,34 @@ namespace Demo_LinearEquations
             return dt;
         }
 
-        private DataTable ConvertArray2DataTable(double[] data)
+        private double[,] ConvertDataTable2Array(DataTable table)
         {
-            if (data == null) return null;
+            if (table == null) return null;
+
+            int r = table.Rows.Count;
+            int c = table.Columns.Count;
+
+            double[,] array = new double[r, c];
+
+
+            for (int j = 0; j < r; j++)
+            {
+                for (int i = 0; i < c; i++)
+                {
+                    array[j, i] = double.Parse(table.Rows[j][i] as string);
+                }
+            }
+
+            return array;
+        }
+        
+        private DataTable ConvertArray2DataTable(double[] array)
+        {
+            if (array == null) return null;
 
             DataTable dt = new DataTable();
 
-            int r = data.Length;
+            int r = array.Length;
             int c = 1;
 
 
@@ -187,7 +210,7 @@ namespace Demo_LinearEquations
                 DataRow dr = dt.NewRow();
 
                 //dr[0] = data[j];
-                dr[0] = data[j].ToString("F2");
+                dr[0] = array[j].ToString("F3");
 
 
                 dt.Rows.Add(dr);
@@ -196,27 +219,79 @@ namespace Demo_LinearEquations
             return dt;
         }
         
-        private List<List<double>> Convert2dArray2List(double[,] data)
+        private List<List<double>> Convert2dArray2List(double[,] array)
         {
             List<List<double>> l = new List<List<double>>();
 
-            int r = data.GetLength(0);
-            int c = data.GetLength(1);
+            int r = array.GetLength(0);
+            int c = array.GetLength(1);
 
             for (int j = 0; j < r; j++)
             {
                 List<double> d = new List<double>(c);
                 for (int i = 0; i < c; i++)
                 {
-                    d.Add(data[j, i]);
+                    d.Add(array[j, i]);
                 }
                 l.Add(d);
             }
             return l;
         }
 
+        private void PasteToDataGrid()
+        {
+            string pasteText = Clipboard.GetText();
+            if (string.IsNullOrEmpty(pasteText)) return;
 
+            char[] rowSeperators = { '\n' };
+            char[] colSeperators = { '\t' };
 
+            string[] ss = pasteText.Replace("\r\n", "\n").Split(rowSeperators, StringSplitOptions.RemoveEmptyEntries);
+            if (ss.Length < 1) return;
+
+            List<List<string>> texts = new List<List<string>>();
+
+            foreach (string s in ss)
+            {
+                List<string> sl = new List<string>();
+                texts.Add(sl);
+                string[] tt = s.Split(colSeperators);
+                foreach (string t in tt) { sl.Add(t); }
+            }
+
+            int rows = texts.Count;
+            int cols = int.MinValue;
+
+            foreach (List<string> l in texts)
+            {
+                if (cols < l.Count) cols = l.Count;
+            }
+
+            double[,] data = new double[rows,cols];
+
+            for (int j = 0; j < texts.Count; j++)
+            {
+                List<string> l = texts[j];
+                for (int i = 0; i < l.Count; i++)
+                {
+                    if (i < l.Count)
+                    {
+                        double v;
+                        if (!double.TryParse(l[i], out v)) { throw new Exception("Parse value errored."); }
+                        data[j, i] = v;
+                    }
+                    else
+                    {
+                        data[j, i] = 0;
+                    }
+                }
+            }
+
+            dataGridInputData.ItemsSource = ConvertArray2DataTable(data).DefaultView;
+
+        }
+
+        
         //Result = [1,1,1]T
         private double[,] testData1 = new double[,]
         {
@@ -250,7 +325,12 @@ namespace Demo_LinearEquations
             {3,1,2,11,     0},
         };
 
-        
-        
+        private void dataGridInputData_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyboardDevice.Modifiers== ModifierKeys.Control && e.Key== Key.V)
+            {
+                PasteToDataGrid();
+            }
+        }
     }
 }

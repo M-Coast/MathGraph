@@ -107,6 +107,7 @@ namespace Coast.Math.Expression
             BuiltInFunctions.Add("pow", new Function() { Id = new Identifier("pow"), Parameters = new List<Parameter>() { new Parameter(), new Parameter() } });
             BuiltInFunctions.Add("exp", new Function() { Id = new Identifier("exp"), Parameters = new List<Parameter>() { new Parameter() } });
             BuiltInFunctions.Add("log", new Function() { Id = new Identifier("log"), Parameters = new List<Parameter>() { new Parameter() } });
+            BuiltInFunctions.Add("sqrt", new Function() { Id = new Identifier("log"), Parameters = new List<Parameter>() { new Parameter() } });
         }
     }
 

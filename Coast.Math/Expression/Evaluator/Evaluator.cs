@@ -63,9 +63,9 @@ namespace Coast.Math.Expression
                         Solve(e.Expression);
                     }
                     break;
-                case ExpressionType.FuncCallExpression:
+                case ExpressionType.CallExpression:
                     {
-                        FuncCallExpression e = (FuncCallExpression)expr;
+                        CallExpression e = (CallExpression)expr;
 
                         foreach(Expression arg in e.Arguments)
                         {
@@ -215,6 +215,11 @@ namespace Coast.Math.Expression
                     result = System.Math.Log(args[0]);
                     break;
 
+                case "sqrt":
+                case "Sqrt":
+                case "SQRT":
+                    result = System.Math.Sqrt(args[0]);
+                    break;
 
             }
 

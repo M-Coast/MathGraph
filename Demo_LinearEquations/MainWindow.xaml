@@ -38,7 +38,7 @@
                         <ComboBoxItem Content="TestData4"></ComboBoxItem>
                     </ComboBox>
                 </Grid>
-                <DataGrid Grid.Row="1" x:Name="dataGridInputData"></DataGrid>
+                <DataGrid Grid.Row="1" x:Name="dataGridInputData" KeyDown="dataGridInputData_KeyDown" ></DataGrid>
             </Grid>
 
             <Grid Grid.Column="1">

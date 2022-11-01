@@ -210,10 +210,10 @@ namespace Coast.Math.Expression
 
                 Function func = (Function)symbol.Value;
                 List<Expression> args = ParseFunctionArgs(func);
-                FuncCallExpression funcCall = new FuncCallExpression(func, args);
+                CallExpression call = new CallExpression(func, args);
                 
 
-                expr = funcCall;
+                expr = call;
                 return;
 
             }
@@ -456,7 +456,7 @@ namespace Coast.Math.Expression
                         s += "(" + GenerateCode(e.Expression) + ")";
                     }
                     break;
-                case ExpressionType.FuncCallExpression: break;
+                case ExpressionType.CallExpression: break;
                 case ExpressionType.ExponentialExpression: break;
                 case ExpressionType.NegativeExpression:
                     {
@@ -519,7 +519,7 @@ namespace Coast.Math.Expression
 
                 case ExpressionType.ConstantExpression:
                 case ExpressionType.ParenthesisExpression:
-                case ExpressionType.FuncCallExpression:
+                case ExpressionType.CallExpression:
                 case ExpressionType.ExponentialExpression:
                 case ExpressionType.NegativeExpression:
                 case ExpressionType.PositiveExpression:
